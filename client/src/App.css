@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+    --cardColor: rgba(255, 255, 255, 0.64);
+    --inputBg: rgba(240, 238, 238, 0.90);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+.firework {
+    position: absolute;
+    width: 15rem;
+    height: 15rem;
+    border: 50%;
+    background: rgba(124, 37, 170, 0.419);
+    filter: blur(60px);
+}
+
+.button {
+    background: rgb(176,136,74);
+    background: linear-gradient(114deg, rgba(176,136,74,1) 0%, rgba(160,70,252,0.7077205882352942) 78%);
+    border: none;
+    outline: none;
+    border-radius: 20px;
+}

@@ -1,0 +1,76 @@
+.navbar {
+    position: relative;
+    display: grid;
+    grid-template-columns: 10rem auto 10rem;
+}
+
+.logo-section {
+    padding: 8px;
+    align-self: center;
+}
+
+.logo-section>.logoText {
+    font-size: 30px;
+    background: linear-gradient(114deg, rgba(176, 136, 74, 1) 0%, rgba(160, 70, 252, 0.7077205882352942) 78%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.middle-section {
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+}
+
+.searchContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 8px;
+    padding-right: 8px;
+    height: 30px;
+    min-width: 100px;
+    width: 30%;
+    border-radius: 20px;
+    outline: none;
+    border: 1px solid rgba(93, 92, 92, 0.188);
+    background: var(--inputBg);
+    font-size: 14px;
+}
+
+.searchBox {
+    width: 100%;
+    border: none;
+    background: var(--inputBg);
+    border-radius: 20px;
+    outline: none;
+}
+
+.create-btn {
+    padding: 8px;
+    height: 30px;
+    width: 160px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-btn:hover {
+    color: rgb(212, 182, 239);
+}
+
+.right-section {
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+
+
+}
