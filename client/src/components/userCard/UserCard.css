@@ -1,0 +1,76 @@
+.userCard {
+    position: relative;
+    padding: 8px;
+    border-radius: 20px;
+    background-color: var(--cardColor);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.userCard>.setting {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    cursor: pointer;
+}
+
+.profilePhoto {
+    padding: 8px;
+}
+
+.profilePhoto>img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: var(--profileBoxShadow);
+    object-fit: fill;
+}
+
+.userDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+
+.userDetails>div:nth-of-type(1) {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.userDetails>div:nth-of-type(2) {
+    font-size: 14px;
+    color: var(--gray);
+}
+
+.social-details {
+    display: flex;
+    margin-top: 2rem;
+    gap: 2rem;
+}
+
+.postDetail,
+.followerDetail,
+.followingDetail {
+    display: flex;
+    flex-direction: column;
+}
+
+.social-details>.postDetail>div:nth-of-type(1),
+.social-details>.followerDetail>div:nth-of-type(1),
+.social-details>.followingDetail>div:nth-of-type(1) {
+    align-self: center;
+    font-weight: bold;
+}
+
+.social-details>.postDetail>div:nth-of-type(2),
+.social-details>.followerDetail>div:nth-of-type(2),
+.social-details>.followingDetail>div:nth-of-type(2) {
+    align-self: center;
+    color: var(--gray);
+    font-weight: bold;
+    font-size: 12px;
+}

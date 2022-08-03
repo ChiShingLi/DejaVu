@@ -1,0 +1,4 @@
+.leftSection{
+    display: flex;
+    flex-direction: column;
+}
