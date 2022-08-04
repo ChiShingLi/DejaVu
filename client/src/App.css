@@ -3,6 +3,7 @@
 :root {
     --cardColor: rgba(255, 255, 255, 0.64);
     --inputBg: rgba(240, 238, 238, 0.90);
+    --iconColor: rgba(156, 122, 122, 0.91);
     --gray: rgba(36, 45, 73, 0.65);
     --profileBoxShadow: 0px 4px 17px 2px rgba(0, 0, 0, 0.25);
     --gradient-color1: linear-gradient(114deg, rgba(176, 136, 74, 1) 0%, rgba(160, 70, 252, 0.7077205882352942) 78%);
@@ -20,7 +21,8 @@ body {
     padding: 0;
 }
 
-.firework, .firework2{
+.firework,
+.firework2 {
     position: absolute;
     width: 15rem;
     height: 20rem;
@@ -30,7 +32,7 @@ body {
     overflow: hidden;
 }
 
-.firework2{
+.firework2 {
     background: rgb(176, 136, 74);
     filter: blur(160px);
 }
@@ -41,4 +43,10 @@ body {
     border: none;
     outline: none;
     border-radius: 20px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.button:hover {
+    color: grey;
 }

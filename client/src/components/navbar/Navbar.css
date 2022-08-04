@@ -72,3 +72,13 @@
     display: flex;
     justify-content: space-between;
 }
+
+.right-section>div {
+    color: var(--iconColor);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.right-section>div:hover {
+    color: rgba(255, 255, 255, 1);
+}

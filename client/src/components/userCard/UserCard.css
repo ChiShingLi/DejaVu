@@ -74,3 +74,14 @@
     font-weight: bold;
     font-size: 12px;
 }
+
+
+.setting {
+    color: var(--iconColor);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.setting:hover {
+    color: rgb(70, 67, 67);
+}
