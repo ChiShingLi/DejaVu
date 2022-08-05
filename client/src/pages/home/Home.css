@@ -1,5 +1,7 @@
 .home-content {
+    justify-content: center;
     padding: 8px;
+    padding-bottom: 0px;
     display: grid;
-    grid-template-columns: 20rem auto 20rem;
+    grid-template-columns: minmax(15rem, 20rem) minmax(45rem, 55rem) minmax(15rem, 20rem);
 }

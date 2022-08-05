@@ -1,0 +1,121 @@
+.feed {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--feedCardColor);
+    border-radius: 10px;
+    width: 90%;
+    gap: 1rem;
+    outline: 1px solid var(--outlineColor);
+    box-shadow: var(--profileBoxShadow);
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-self: flex-start;
+
+}
+
+.feed-profilePhoto>img {
+    max-width: 50px;
+    max-height: 50px;
+    object-fit: cover;
+}
+
+.feed-userDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 3px;
+}
+
+.feed-userDetails>div:nth-of-type(1) {
+    font-weight: bold;
+}
+
+.feed-userDetails>div:nth-of-type(2) {
+    font-size: 14px;
+    color: gray;
+}
+
+.feedOption {
+    margin-left: auto;
+    cursor: pointer;
+}
+
+
+.feedPhoto>img {
+    display: block;
+    width: 100%;
+    max-height: 30rem;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.feedActions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.feedActions>div {
+    gap: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.feedActions>div>span {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+hr {
+    width: 100%;
+    border: 1px solid var(--outlineColor);
+}
+
+.feedDescription {
+    font-size: 20px;
+    font-weight: bold;
+    overflow-wrap: break-word;
+}
+
+.feedCommentSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.feedCommentSection>.commentBox {
+    padding-left: 6px;
+    padding-right: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 8px;
+    width: 100%;
+    height: 3.2rem;
+    border: 1px solid var(--outlineColor);
+    background: var(--inputBg);
+    border-radius: 50px;
+    outline: none;
+}
+
+.commentBox>.feedCommentInput {
+    height: 90%;
+    width: 100%;
+    outline: none;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+}
+
+.send-btn {
+    color: var(--gray);
+    cursor: pointer;
+}

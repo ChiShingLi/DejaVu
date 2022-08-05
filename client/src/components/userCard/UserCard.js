@@ -13,12 +13,10 @@ const UserCard = () => {
         location: "Portland, OR"
     });
 
-    //TODO: pass in userDetails state as props to modal
-
+    //TODO: pass in real userDetails state as props to modal
 
     return (
         <div className="userCard">
-
             <div className="setting">
                 <IoSettingsOutline size={25} onClick={() => setModalOpened(true)} />
                 <UserCardModal modalOpened={modalOpened} setModalOpened={setModalOpened} userDetails={userDetails} setUserDetails={setUserDetails} />
