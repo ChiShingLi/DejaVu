@@ -2,6 +2,7 @@
 
 :root {
     --outlineColor: rgba(109, 108, 108, 0.188);
+    --outlineFeedColor: rgba(217, 210, 210, 0.50);
     --cardColor: rgba(255, 255, 255, 0.773);
     --feedCardColor: #FFFFFF;
     --inputBg: rgba(240, 238, 238, 0.90);

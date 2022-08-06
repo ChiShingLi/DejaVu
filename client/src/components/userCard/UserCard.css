@@ -2,6 +2,7 @@
     position: relative;
     padding: 8px;
     border-radius: 20px;
+    border: 1px solid var(--outlineColor);
     background-color: var(--cardColor);
     display: flex;
     flex-direction: column;

@@ -1,0 +1,10 @@
+.newsCard {
+    border: 1px solid var(--outlineColor);
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    border-radius: 20px;
+    background-color: var(--cardColor);
+    width: 100%;
+    gap: 8px;
+}
