@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import selfie from "../../testing-data/img/profile.jpg"
 import { IoLocationOutline, IoSettingsOutline } from "react-icons/io5";
 import UserCardModal from '../modals/userCardModal/UserCardModal';
+import { ThemeContext } from '../../contexts/ThemeContext';
 
 import "./UserCard.css"
 const UserCard = () => {
+    const { theme } = useContext(ThemeContext);
     const [modalOpened, setModalOpened] = useState(false);
     const [userDetails, setUserDetails] = useState({
         name: "Chi Li",
@@ -16,7 +18,7 @@ const UserCard = () => {
     //TODO: pass in real userDetails state as props to modal
 
     return (
-        <div className="userCard">
+        <div className={theme === "light" ? "userCard" : "userCard-dark"}>
             <div className="setting">
                 <IoSettingsOutline size={25} onClick={() => setModalOpened(true)} />
                 <UserCardModal modalOpened={modalOpened} setModalOpened={setModalOpened} userDetails={userDetails} setUserDetails={setUserDetails} />

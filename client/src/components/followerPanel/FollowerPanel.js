@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { followerData } from "../../testing-data/follower.js";
-
+import { ThemeContext } from '../../contexts/ThemeContext';
 import "./FollowerPanel.css"
 
 const FollowerPanel = () => {
+    const { theme } = useContext(ThemeContext)
     return (
-        <div className="followPanel">
+        <div className={theme === "light" ? "followPanel" : "followPanel-dark"}>
             <h3>Who's following you</h3>
             {followerData.map(follower => {
                 return (

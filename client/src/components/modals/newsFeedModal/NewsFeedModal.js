@@ -1,18 +1,23 @@
+import React, { useContext } from 'react'
 import { Modal, useMantineTheme } from '@mantine/core';
 import moment from 'moment';
-import React from 'react'
+import { ThemeContext } from '../../../contexts/ThemeContext';
 
 import "./NewsFeedModal.css";
 const NewsFeedModal = ({ newsObj, modalOpened, setModalOpened }) => {
-    const theme = useMantineTheme();
+    const mantineTheme = useMantineTheme();
+    const { theme } = useContext(ThemeContext);
     return (
         <Modal
-            overlayColor={theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2]}
+            overlayColor={theme === "dark" ? mantineTheme.colors.dark[9] : mantineTheme.colors.gray[2]}
             overlayOpacity={0.55}
             overlayBlur={3}
             size={"80%"}
             opened={modalOpened}
             onClose={() => setModalOpened(false)}
+            transition="pop-top-right"
+            transitionDuration={300}
+            transitionTimingFunction="ease"
         >
             <div className="newsFeedModal">
                 <div className="title"><h2>{newsObj.title}</h2></div>

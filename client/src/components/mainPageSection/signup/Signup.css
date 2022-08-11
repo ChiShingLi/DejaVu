@@ -1,0 +1,22 @@
+.signupSection {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    height: 50%;
+    width: 50%;
+}
+
+.signupSection>input {
+    border-radius: 10px;
+    height: 2.5rem;
+}
+
+.signupSection>.signup-btn {
+    height: 3rem;
+    width: 102%;
+    border-radius: 10px;
+    font-weight: bold;
+}

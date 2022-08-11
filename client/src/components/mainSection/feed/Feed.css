@@ -1,4 +1,5 @@
-.feed {
+.feed,
+.feed-dark {
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -8,6 +9,11 @@
     gap: 1rem;
     outline: 1px solid var(--outlineColor);
     box-shadow: var(--profileBoxShadow);
+}
+
+.feed-dark {
+    background-color: var(--feedCardColor-dark);
+    color: var(--text-color-dark);
 }
 
 .header {
@@ -33,12 +39,22 @@
 }
 
 .feed-userDetails>div:nth-of-type(1) {
+    color: black;
+    font-size: 16px;
     font-weight: bold;
 }
 
 .feed-userDetails>div:nth-of-type(2) {
     font-size: 14px;
     color: gray;
+}
+
+.feed-dark>.header>.feed-userDetails>.username {
+    color: var(--text-color-dark);
+}
+
+.feed-dark>.header>.feed-userDetails>.location {
+    color: var(--gray-dark);
 }
 
 .feedOption {

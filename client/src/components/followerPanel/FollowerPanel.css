@@ -3,6 +3,10 @@
     flex-direction: column;
 }
 
+.followPanel-dark {
+    color: var(--text-color-dark);
+}
+
 .followPanel>h3 {
     color: var(--gradient-text);
 }

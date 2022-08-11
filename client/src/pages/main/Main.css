@@ -1,0 +1,29 @@
+.mainPage {
+    display: flex;
+    height: 90vh;
+    width: 100%;
+    justify-content: center;
+}
+
+.main-leftSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.main-leftSection>h1 {
+    font-size: 50px;
+    background: linear-gradient(114deg, rgba(176, 136, 74, 1) 0%, rgba(160, 70, 252, 0.7077205882352942) 78%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main-rightSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}

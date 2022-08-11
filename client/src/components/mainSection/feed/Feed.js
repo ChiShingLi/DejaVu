@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { BsThreeDots } from "react-icons/bs";
 import { IoHeartOutline, IoHeart, IoSend, IoChatbubbleOutline, IoShareSocialOutline, IoBookmarkOutline, IoBookmark } from "react-icons/io5";
-import "./Feed.css"
+import { ThemeContext } from '../../../contexts/ThemeContext';
 
+import "./Feed.css"
 const Feed = (props) => {
+    const { theme } = useContext(ThemeContext);
     return (
-        <div className="feed">
+        <div className={theme === "light" ? "feed" : "feed-dark"}>
             <div className="header">
                 <div className="profilePhoto feed-profilePhoto">
                     <img src={props.postData.img} alt="" />

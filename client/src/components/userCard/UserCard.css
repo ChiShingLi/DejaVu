@@ -1,4 +1,5 @@
-.userCard {
+.userCard,
+.userCard-dark {
     position: relative;
     padding: 8px;
     border-radius: 20px;
@@ -10,7 +11,14 @@
     align-items: center;
 }
 
-.userCard>.setting {
+.userCard-dark {
+    color: var(--text-color-dark);
+    border: 1px solid var(--outlineColor);
+    background-color: var(--cardColor-dark);
+}
+
+.userCard>.setting,
+.userCard-dark>.setting {
     position: absolute;
     top: 5px;
     right: 8px;
@@ -29,6 +37,10 @@
     object-fit: fill;
 }
 
+.userCard-dark>.profilePhoto>img {
+    box-shadow: var(--profileBoxShadow-dark);
+}
+
 .userDetails {
     display: flex;
     flex-direction: column;
@@ -45,6 +57,10 @@
 .userDetails>div:nth-of-type(2) {
     font-size: 14px;
     color: var(--gray);
+}
+
+.userCard-dark>.userDetails>div:nth-of-type(2) {
+    color: var(--gray-dark);
 }
 
 .social-details {
@@ -76,11 +92,21 @@
     font-size: 12px;
 }
 
+.userCard-dark>.social-details>.postDetail>div:nth-of-type(2),
+.userCard-dark>.social-details>.followerDetail>div:nth-of-type(2),
+.userCard-dark>.social-details>.followingDetail>div:nth-of-type(2) {
+    color: var(--gray-dark);
+}
+
 
 .setting {
     color: var(--iconColor);
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+}
+
+.userCard-dark>.setting {
+    color: var(--iconColor-dark);
 }
 
 .setting:hover {

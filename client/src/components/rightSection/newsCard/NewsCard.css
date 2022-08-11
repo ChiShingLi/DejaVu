@@ -1,4 +1,5 @@
-.newsCard {
+.newsCard,
+.newsCard-dark {
     border: 1px solid var(--outlineColor);
     display: flex;
     flex-direction: column;
@@ -7,4 +8,9 @@
     background-color: var(--cardColor);
     width: 100%;
     gap: 8px;
+}
+
+.newsCard-dark {
+    background-color: var(--cardColor-dark);
+    color: var(--text-color-dark);
 }

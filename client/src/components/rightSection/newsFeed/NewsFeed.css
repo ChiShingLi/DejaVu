@@ -1,25 +1,31 @@
-.newsFeed {
+.newsFeed,
+.newsFeed-dark {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.newsFeed:hover {
+.newsFeed:hover,
+.newsFeed-dark:hover {
     border-radius: 5px;
     background-color: var(--outlineFeedColor);
     cursor: pointer;
 }
 
-.newsFeed>.header {
+.newsFeed-dark:hover {
+    background-color: var(--outlineFeedColor-dark);
+}
+
+.newsFeed>.header,
+.newsFeed-dark>.header {
     display: flex;
     gap: 8px;
 }
 
-.newsFeed>.header>div {
+.header>div {
     color: gray;
     font-size: 12px;
 }
-
 
 .newsFeedDetails {
     display: flex;
