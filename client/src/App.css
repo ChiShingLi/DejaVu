@@ -30,6 +30,7 @@
     overflow: auto;
     background-color: #f3f3f3;
     height: 100vh;
+    transition: all 1s linear;
 }
 
 #light {

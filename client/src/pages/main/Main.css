@@ -27,3 +27,9 @@
     align-items: center;
     width: 100%;
 }
+
+.notice-btn {
+    font-weight: bold;
+    color: rgba(160, 70, 252, 0.7077205882352942);
+    cursor: pointer;
+}

@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
 import { API_userRegister } from "../../../apis/UserRequest";
+import { useNavigate } from "react-router-dom";
 
-import "./Signup.css"
+import "./Signup.css";
+
 const Signup = () => {
+    const navigate = useNavigate();
+
     const [registerObj, setRegisterObj] = useState({
         fullName: "",
         username: "",
@@ -22,6 +26,7 @@ const Signup = () => {
         if (result.status === true) {
             localStorage.setItem("token", result.token);
             //TODO: redirect to homepage
+            navigate("/Home");
         } else {
             //TODO: custom error message
             console.log(result.message)
