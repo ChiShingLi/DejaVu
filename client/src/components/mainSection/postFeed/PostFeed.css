@@ -1,0 +1,98 @@
+.postFeed,
+.postFeed-dark {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--feedCardColor);
+    outline: 1px solid var(--outlineColor);
+    box-shadow: var(--profileBoxShadow);
+}
+
+.postFeed-dark {
+    background-color: var(--feedCardColor-dark);
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.postFeedInput {
+    width: 100%;
+    display: flex;
+    gap: 3px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.postFeedInput>.feedInputWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px;
+    height: 80%;
+    width: 100%;
+    border: none;
+    background: var(--inputBg);
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.feedInputWrapper>input {
+    height: 90%;
+    width: 100%;
+    font-size: 18px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+
+.feedInputWrapper>.imageIcon {
+    color: var(--gray);
+    cursor: pointer;
+}
+
+.shareFeed-btn {
+    height: 3rem;
+    width: 5rem;
+}
+
+.postFeedProfilePhoto {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.postFeedProfilePhoto>img {
+    height: 3rem;
+    width: 3rem;
+}
+
+.FeedImagePreview {
+    position: relative;
+    padding: 8px;
+    width: 100%;
+}
+
+.FeedImagePreview>img {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.FeedImagePreview>.cancelButton {
+    position: absolute;
+    right: 20px;
+}
+
+.cancelButton>.cancelIcon {
+    color: red;
+    cursor: pointer;
+}
