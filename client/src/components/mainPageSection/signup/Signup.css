@@ -1,4 +1,5 @@
-.signupSection {
+.signupSection,
+.signupSection-dark {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -9,12 +10,18 @@
     width: 50%;
 }
 
-.signupSection>input {
+.signupSection-dark {
+    color: white;
+}
+
+.signupSection>input,
+.signupSection-dark>input {
     border-radius: 10px;
     height: 2.5rem;
 }
 
-.signupSection>.signup-btn {
+.signupSection>.signup-btn,
+.signupSection-dark>.signup-btn {
     height: 3rem;
     width: 102%;
     border-radius: 10px;

@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import Login from '../../components/mainPageSection/login/Login'
 import Signup from '../../components/mainPageSection/signup/Signup'
+import { ThemeContext } from '../../contexts/ThemeContext';
 import { useNavigate } from "react-router-dom";
+
 import "./Main.css"
 const Main = () => {
     const navigate = useNavigate();
+    const { theme } = useContext(ThemeContext);
     useEffect(() => {
         //redirect if already logged in
         if (localStorage.getItem("token") !== null) {
@@ -19,7 +22,7 @@ const Main = () => {
     }
 
     return (
-        <div className="mainPage">
+        <div className={theme === "light" ? "mainPage" : "mainPage-dark"}>
             <div className="main-leftSection">
                 <h1>DejaVu</h1>
                 <h2>Stay in the know with latest updates and news.</h2>

@@ -1,4 +1,5 @@
-.loginSection {
+.loginSection,
+.loginSection-dark {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -9,7 +10,12 @@
     width: 50%;
 }
 
-.loginSection>input {
+.loginSection-dark {
+    color: white;
+}
+
+.loginSection>input,
+.loginSection-dark>input {
     border-radius: 10px;
 }
 
@@ -34,8 +40,11 @@
     outline: none;
 }
 
-.loginSection>.login-btn {
-    height: 50px;
+.login-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50px;
     width: 102%;
     border-radius: 10px;
     font-weight: bold;

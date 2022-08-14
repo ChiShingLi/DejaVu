@@ -7,36 +7,26 @@ import Main from './pages/main/Main';
 import { ThemeContext } from "./contexts/ThemeContext";
 import { RequireAuthContext } from "./contexts/RequireAuthContext";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { NotificationsProvider } from '@mantine/notifications'
 
 const App = () => {
     const [theme, setTheme] = useState("light");
     return (
-        // <ThemeContext.Provider value={{ theme, setTheme }}>
-        //     <div className="App" id={theme}>
-        //         <div className="firework2" style={{ top: "10px" }} />
-        //         <div className="firework2" style={{ right: "20px", bottom: "0px" }} />
-        //         <div className="firework" style={{ bottom: "10px" }} />
-        //         <div className="firework" style={{ right: "10px" }} />
-        //         {/* <Navbar />
-        //         <Home /> */}
-        //         <Main />
-        //     </div>
-        // </ThemeContext.Provider>
-
         <Router>
-
             <ThemeContext.Provider value={{ theme, setTheme }}>
-                <div className="App" id={theme}>
-                    <div className="firework2" style={{ top: "10px" }} />
-                    <div className="firework2" style={{ right: "20px", bottom: "0px" }} />
-                    <div className="firework" style={{ bottom: "10px" }} />
-                    <div className="firework" style={{ right: "10px" }} />
-                    <Navbar />
-                    <Routes>
-                        <Route path="/" element={<Main />} />
-                        <Route path="/home" element={<RequireAuthContext><Home /></RequireAuthContext>} />
-                    </Routes>
-                </div>
+                <NotificationsProvider>
+                    <div className="App" id={theme}>
+                        <div className="firework2" style={{ top: "10px" }} />
+                        <div className="firework2" style={{ right: "20px", bottom: "0px" }} />
+                        <div className="firework" style={{ bottom: "10px" }} />
+                        <div className="firework" style={{ right: "10px" }} />
+                        <Navbar />
+                        <Routes>
+                            <Route path="/" element={<Main />} />
+                            <Route path="/home" element={<RequireAuthContext><Home /></RequireAuthContext>} />
+                        </Routes>
+                    </div>
+                </NotificationsProvider>
             </ThemeContext.Provider>
         </Router>
     )

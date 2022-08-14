@@ -1,4 +1,5 @@
-.mainPage {
+.mainPage,
+.mainPage-dark {
     display: flex;
     height: 90vh;
     width: 100%;
@@ -11,6 +12,10 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+.mainPage-dark>.main-leftSection {
+    color: white;
 }
 
 .main-leftSection>h1 {
@@ -32,4 +37,8 @@
     font-weight: bold;
     color: rgba(160, 70, 252, 0.7077205882352942);
     cursor: pointer;
+}
+
+.mainPage-dark>.main-rightSection>.notice {
+    color: white;
 }

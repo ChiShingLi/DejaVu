@@ -10,3 +10,12 @@ export const API_userRegister = async (data) => {
         return { status: false, message: err }
     })
 };
+
+//user login API call
+export const API_userLogin = async (data) => {
+    return await API.post("/user/login", data).then((res) => {
+        return { status: true, token: res.data.token };
+    }).catch((err) => {
+        return { status: false, message: err }
+    })
+}
