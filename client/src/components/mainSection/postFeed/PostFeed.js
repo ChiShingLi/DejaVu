@@ -35,7 +35,7 @@ const PostFeed = () => {
             {image ?
                 <div className="FeedImagePreview">
                     <div className="cancelButton"><IoCloseSharp className="cancelIcon" size={40} onClick={() => setImage(null)} /></div>
-                    <img src={image} alt="" />
+                    <img src={image} alt="feed" />
                 </div> : <></>}
         </div>
     )

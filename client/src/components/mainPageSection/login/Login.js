@@ -9,6 +9,11 @@ const Login = () => {
     const { theme } = useContext(ThemeContext);
     const navigate = useNavigate();
 
+    //trim whitespaces after leaving the input fields
+    const formatInput = (e) => {
+        setLoginObj({ ...loginObj, [e.target.name]: e.target.value.trim() });
+    }
+
     //loading spinner indicator
     const [loading, setLoading] = useState(false);
     const [loginObj, setLoginObj] = useState({
@@ -27,6 +32,7 @@ const Login = () => {
         const result = await API_userLogin(loginObj);
         if (result.status === true) {
             localStorage.setItem("token", result.token);
+            localStorage.setItem("userDetails", JSON.stringify(result.userDetails))
             navigate("/home");
             setLoading(false);
         } else if (result.status === false) {
@@ -34,13 +40,14 @@ const Login = () => {
             { result.message.response.status === 401 ? showErrorNoti("Incorrect Username or Password", "Please try again.") : showErrorNoti("Internal Server Error", "Please try again.") }
         }
         setLoading(false);
+        console.log(localStorage.getItem("token"))
     }
 
     return (
         <div className={theme === "light" ? "loginSection" : "loginSection-dark"}>
             <h1>Sign In</h1>
-            <input type="text" name="username" className="loginInput" placeholder="Username" onChange={handleChange} />
-            <input type="password" name="password" className="loginInput" placeholder="Password" onChange={handleChange} />
+            <input type="text" name="username" className="loginInput" placeholder="Username" onChange={handleChange} onBlur={formatInput} />
+            <input type="password" name="password" className="loginInput" placeholder="Password" onChange={handleChange} onBlur={formatInput} />
             <button className="button login-btn" onClick={handleSubmit}>{loading ? <PulseLoader size={10} color={"white"} /> : "Log In"}</button>
         </div>
     )

@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react'
-import selfie from "../../testing-data/img/profile.jpg"
 import { IoLocationOutline, IoSettingsOutline } from "react-icons/io5";
 import UserCardModal from '../modals/userCardModal/UserCardModal';
 import { ThemeContext } from '../../contexts/ThemeContext';
@@ -8,46 +7,39 @@ import "./UserCard.css"
 const UserCard = () => {
     const { theme } = useContext(ThemeContext);
     const [modalOpened, setModalOpened] = useState(false);
-    const [userDetails, setUserDetails] = useState({
-        name: "Chi Li",
-        username: "@Chili",
-        title: "Software Engineer",
-        location: "Portland, OR"
-    });
-
-    //TODO: pass in real userDetails state as props to modal
+    const [userObj, setUserObj] = useState(JSON.parse(localStorage.getItem("userDetails")));
 
     return (
         <div className={theme === "light" ? "userCard" : "userCard-dark"}>
             <div className="setting">
                 <IoSettingsOutline size={25} onClick={() => setModalOpened(true)} />
-                <UserCardModal modalOpened={modalOpened} setModalOpened={setModalOpened} userDetails={userDetails} setUserDetails={setUserDetails} />
+                <UserCardModal modalOpened={modalOpened} setModalOpened={setModalOpened} userObj={userObj} setUserObj={setUserObj} />
             </div>
             <div className="profilePhoto">
-                <img src={selfie} alt="test" />
+                {userObj.profilePhoto ? <img src={userObj.profilePhoto} alt="Profile" /> : <img src="/images/noProfilePhoto.jpg" alt="Profile" />}
             </div>
             <div className="userDetails">
-                <div className="name">{userDetails.name}</div>
-                <div className="username">{userDetails.username}</div>
-                <div className="title">{userDetails.title}</div>
-                <div className="location"><IoLocationOutline />{userDetails.location}</div>
+                <div className="name">{userObj.fullName}</div>
+                <div className="username">@{userObj.username}</div>
+                <div className="title">{userObj.title}</div>
+                <div className="location"><IoLocationOutline />{userObj.location}</div>
             </div>
             <div className="social-details">
                 <div className="postDetail">
                     <div className="postCount">
-                        1,000
+                        {userObj.feeds.length}
                     </div>
                     <div>POSTS</div>
                 </div>
                 <div className="followerDetail">
                     <div className="followerCount">
-                        2,000
+                        {userObj.followers.length}
                     </div>
                     <div>FOLLOWERS</div>
                 </div>
                 <div className="followingDetail">
                     <div className="followingCount">
-                        3,000
+                        {userObj.following.length}
                     </div>
                     <div>FOLLOWING</div>
                 </div>

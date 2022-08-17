@@ -8,7 +8,7 @@ const Navbar = () => {
     const navigate = useNavigate();
     const handleLogout = () => {
         //remove current user token and redirect to main page
-        localStorage.removeItem("token");
+        localStorage.clear();
         navigate("/");
     }
 
