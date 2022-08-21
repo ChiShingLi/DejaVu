@@ -5,7 +5,11 @@ import { showErrorNoti } from '../../utilities/ShowNotification';
 import { useNavigate } from "react-router-dom";
 import PulseLoader from "react-spinners/PulseLoader";
 import "./Login.css";
+import { useDispatch } from "react-redux";
+import { updateUser } from "../../../redux/actions/userActions";
+
 const Login = () => {
+    const dispatch = useDispatch();
     const { theme } = useContext(ThemeContext);
     const navigate = useNavigate();
 
@@ -32,7 +36,7 @@ const Login = () => {
         const result = await API_userLogin(loginObj);
         if (result.status === true) {
             localStorage.setItem("token", result.token);
-            localStorage.setItem("userDetails", JSON.stringify(result.userDetails))
+            dispatch(updateUser(result.userDetails)); //store into redux userReducer
             navigate("/home");
             setLoading(false);
         } else if (result.status === false) {
@@ -40,7 +44,6 @@ const Login = () => {
             { result.message.response.status === 401 ? showErrorNoti("Incorrect Username or Password", "Please try again.") : showErrorNoti("Internal Server Error", "Please try again.") }
         }
         setLoading(false);
-        console.log(localStorage.getItem("token"))
     }
 
     return (

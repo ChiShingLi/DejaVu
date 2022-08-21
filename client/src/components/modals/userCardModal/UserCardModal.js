@@ -6,8 +6,13 @@ import { convertImageBase64 } from "../../utilities/ConvertImageBase64"
 import { ThemeContext } from '../../../contexts/ThemeContext';
 import { API_updateUserCard } from "../../../apis/UserRequest";
 import { showSuccessNoti, showErrorNoti } from "../../../components/utilities/ShowNotification";
+import { useSelector, useDispatch } from 'react-redux';
+import { updateUser } from "../../../redux/actions/userActions";
 
-function UserCardModal({ modalOpened, setModalOpened, userObj, setUserObj }) {
+function UserCardModal({ modalOpened, setModalOpened }) {
+    //call to redux user store
+    const userObj = useSelector((state) => state.user);
+    const dispatch = useDispatch();
     const mantineTheme = useMantineTheme();
     const imageUploadRef = useRef();
     const [image, setImage] = useState(userObj.profilePhoto);
@@ -38,14 +43,12 @@ function UserCardModal({ modalOpened, setModalOpened, userObj, setUserObj }) {
         if (userDetailObj.fullName.trim() === "") {
             showErrorNoti("User Card Update Failed", "Please fill out your name.");
         } else if (result.status === true) {
-            showSuccessNoti("User Card Updated Successfully", "User Profile Updated");
+            showSuccessNoti("User Card Updated Successful", "User Profile Updated");
             setModalOpened(false);
-            setUserObj({ ...userObj, ...userDetailObj });
-            localStorage.setItem("userDetails", JSON.stringify({ ...userObj, ...userDetailObj })); //update localstorage
+            dispatch(updateUser(userDetailObj));
         } else {
             showErrorNoti("User Card Update Failed", "Please try again later.")
         }
-
     }
 
     return (
@@ -62,7 +65,7 @@ function UserCardModal({ modalOpened, setModalOpened, userObj, setUserObj }) {
             <div className="UserCardModal">
                 <h3>My Profile</h3>
                 <div className="PreviewProfilePhoto" onClick={() => imageUploadRef.current.click()}>
-                    {userObj.profilePhoto ? <img src={image} alt="Profile" /> : <img src="/images/noProfilePhoto.jpg" alt="Profile" />}
+                    {userDetailObj.profilePhoto != null ? <img src={image} alt="Profile" /> : <img src="/images/noProfilePhoto.jpg" alt="Profile" />}
                 </div>
                 <input type="file" ref={imageUploadRef} onChange={handleImage} name="ProfilePhotoUpload" style={{ display: "none" }} />
                 <input type="text" name="fullName" className="name" placeholder="Name" defaultValue={userObj.fullName} onChange={handleChange} />

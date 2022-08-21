@@ -34,7 +34,6 @@ export const API_updateUserCard = async (data) => {
 //get current login user details
 export const API_getCurUser = async () => {
     return await API.get("/user", { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }).then((res) => {
-        console.log("tEST")
         return { status: true, userDetails: res.data.userDetails };
     }).catch((err) => {
         return { status: false, message: err }

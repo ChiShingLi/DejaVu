@@ -42,7 +42,6 @@ const Signup = () => {
             //handle returned result
             if (result.status === true) {
                 localStorage.setItem("token", result.token);
-                localStorage.setItem("userDetails", JSON.stringify(result.userDetails))
                 //success, redirect to home page
                 navigate("/Home");
             } else if (result.status === false) {

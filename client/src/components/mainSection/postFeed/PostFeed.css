@@ -62,6 +62,7 @@
 .shareFeed-btn {
     height: 3rem;
     width: 5rem;
+    font-weight: bold;
 }
 
 .postFeedProfilePhoto {
