@@ -4,7 +4,8 @@ import cors from "cors";
 import { DbConnection } from "./db.js";
 dotenv.config()
 
-import UserRoute from "./routes/UserRoute.js"
+import UserRoute from "./routes/UserRoute.js";
+import FeedRoute from "./routes/FeedRoute.js";
 
 
 //mongoDB connection
@@ -17,6 +18,7 @@ const PORT = process.env.PORT || 5001;
 app.use(cors());
 app.use(express.json({ limit: "10mb" }));
 app.use("/user", UserRoute);
+app.use("/feed/", FeedRoute)
 
 
 app.get("/", (req, res) => {
