@@ -73,7 +73,6 @@ export const users_updateUserCard = async (req, res) => {
     }
 }
 
-//TODO: GET USER DETAILS
 export const users_getCurrentUserDetails = async (req, res) => {
     try {
         const userObj = await User.findOne({ username: req.decoded.username });
@@ -81,6 +80,30 @@ export const users_getCurrentUserDetails = async (req, res) => {
             //remove password property before sending back userObj data
             const { password, ...reducedUserObj } = userObj._doc;
             //found
+            return res.status(200).send({ userDetails: reducedUserObj });
+        } else {
+            return res.status(500).json({ message: "Internal server error." });
+        }
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ message: "Internal server error." });
+    }
+}
+
+export const users_getFeedUserDetails = async (req, res) => {
+    try {
+        const userId = req.params.id;
+        const userObj = await User.findById(userId);
+        if (userObj) {
+            const { username, fullName, profilePhoto } = userObj._doc;
+
+            //extract userDetails
+            const reducedUserObj = {
+                username: username,
+                fullName: fullName,
+                profilePhoto: profilePhoto
+            }
+
             return res.status(200).send({ userDetails: reducedUserObj });
         } else {
             return res.status(500).json({ message: "Internal server error." });
