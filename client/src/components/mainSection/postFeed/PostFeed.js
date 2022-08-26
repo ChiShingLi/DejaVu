@@ -1,16 +1,15 @@
 import React, { useContext, useRef, useState } from 'react'
 import { ThemeContext } from '../../../contexts/ThemeContext';
-import selfie from "../../../testing-data/img/profile.jpg"
 import { IoImageOutline, IoCloseSharp } from "react-icons/io5";
 import { convertImageBase64 } from "../../utilities/ConvertImageBase64"
 import { API_postFeed } from "../../../apis/FeedRequest";
 import { showSuccessNoti, showErrorNoti } from "../../utilities/ShowNotification";
-import { useSelector } from 'react-redux';
-
-//TODO: SELF photo from user profile
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchAllFeeds } from '../../../redux/actions/feedActions';
 
 import "./PostFeed.css";
 const PostFeed = () => {
+    const dispatch = useDispatch();
     const userDetails = useSelector((state) => state.user);
     const { theme } = useContext(ThemeContext);
 
@@ -54,6 +53,7 @@ const PostFeed = () => {
         } else {
             if (result.status) {
                 clearAll();
+                dispatch(fetchAllFeeds());
                 showSuccessNoti("Post Feed Successful", "Feed posted.");
             } else {
                 showErrorNoti("Internal Server Error", "Please try again later");

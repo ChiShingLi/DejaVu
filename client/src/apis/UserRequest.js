@@ -39,3 +39,12 @@ export const API_getCurUser = async () => {
         return { status: false, message: err }
     })
 }
+
+//get individual feed's user detail
+export const API_getUserFeedDetails = async (userId) => {
+    return await API.get(`/user/${userId}`).then((res) => {
+        return { status: true, userDetails: res.data.userDetails };
+    }).catch((err) => {
+        return { status: false, message: err }
+    })
+}

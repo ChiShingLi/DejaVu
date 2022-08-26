@@ -1,4 +1,6 @@
 export const ActionTypes = {
     FETCH_USER: "FETCH_USER",
-    UPDATE_USER: "UPDATE_USER"
+    UPDATE_USER: "UPDATE_USER",
+    UPDATE_FEED: "UPDATE_FEED",
+    FETCH_FEED: "FETCH_FEED"
 }

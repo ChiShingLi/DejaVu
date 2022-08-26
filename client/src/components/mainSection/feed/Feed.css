@@ -135,3 +135,10 @@ hr {
     color: var(--gray);
     cursor: pointer;
 }
+
+.feedActions>.feedHeart:hover,
+.feedActions>.feedComment:hover,
+.feedActions>.feedShare:hover,
+.feedActions>.feedSave:hover {
+    cursor: pointer;
+}
