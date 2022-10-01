@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import FollowerPanel from '../followerPanel/FollowerPanel'
 import UserCard from '../userCard/UserCard'
-
 import "./LeftSection.css"
+
 const LeftSection = () => {
     return (
         <div className="leftSection">

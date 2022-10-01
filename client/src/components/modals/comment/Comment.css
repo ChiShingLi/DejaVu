@@ -1,0 +1,23 @@
+.commentCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    gap: 8px;
+}
+
+.commentContainer {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.commentDivider {
+    display: flex;
+    gap: 8px;
+}
+
+.commentDivider>.commenter {
+    font-weight: bold;
+}

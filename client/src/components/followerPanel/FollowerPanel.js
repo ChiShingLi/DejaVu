@@ -2,25 +2,33 @@ import React, { useContext } from 'react'
 
 import { followerData } from "../../testing-data/follower.js";
 import { ThemeContext } from '../../contexts/ThemeContext';
+
 import "./FollowerPanel.css"
+import Follower from './follow/Follower.js';
+import { useSelector } from 'react-redux';
 
 const FollowerPanel = () => {
     const { theme } = useContext(ThemeContext)
+    const userDetails = useSelector((state) => state.user);
+
     return (
         <div className={theme === "light" ? "followPanel" : "followPanel-dark"}>
             <h3>Who's following you</h3>
-            {followerData.map(follower => {
+            {userDetails.followers.length > 0 ?
+                <>
+                    {userDetails.followers.map(follower => {
+                        return (
+                            <Follower followerId={follower} />
+                        )
+                    })}
+                </> : <>No one is following you yet.</>
+            }
+
+            {/* {followerData.map(follower => {
                 return (
-                    <div className="followerCard">
-                        <div className="followerPhoto"><img src={follower.profileImage} alt="" /></div>
-                        <div className="followerDetails">
-                            <div className="followerName">{follower.name}</div>
-                            <div className="followerUsername">@{follower.username}</div>
-                        </div>
-                        <button className="button followPanel-follow-btn">Follow</button>
-                    </div>
+                    <Follower followerData={follower} />
                 )
-            })}
+            })} */}
         </div>
     )
 }

@@ -33,9 +33,13 @@ const UserSchema = new mongoose.Schema({
         type: String,
         default: "Earth"
     },
-    followers: [],
+    followers: {
+        type: Array,
+        default: ["63376acae1bc795965d055f4"]
+    },
     following: [],
-    feeds: []
+    feeds: [],
+    savedFeeds: []
 }, { timestamps: true })
 
 const UserModel = mongoose.model("Users", UserSchema);

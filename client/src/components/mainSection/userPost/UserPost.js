@@ -10,36 +10,26 @@ import "./UserPost.css";
 import { fetchAllFeeds } from '../../../redux/actions/feedActions';
 const UserPost = ({ }) => {
     const { theme } = useContext(ThemeContext);
-    //const [postData, setPostData] = useState(null);
     const [loading, setLoading] = useState(true);
     const dispatch = useDispatch();
     const postData = useSelector((state) => state.feed.feeds);
 
-    // const getPostData = async () => {
-    //     setLoading(true);
-    //     const result = await API_getAllFeeds();
-    //     if (result.status == true) {
-    //         setPostData(result.feedObj);
-    //         setLoading(false);
-    //     }
-    // }
-
-    // const sortByDate = () => {
-    //     postData.sort((a, b) => {
-    //         const aTime = a.createdAt;
-    //         const bTime = b.createdAt;
-    //         if (aTime < bTime) {
-    //             return 1;
-    //         }
-    //         if (aTime > bTime) {
-    //             return -1;
-    //         }
-    //     });
-    // }
+    //sort feed in descending order (recent feeds)
+    const sortByDate = () => {
+        postData.sort((a, b) => {
+            const aTime = a.createdAt;
+            const bTime = b.createdAt;
+            if (aTime < bTime) {
+                return 1;
+            }
+            if (aTime > bTime) {
+                return -1;
+            }
+        });
+    }
 
     useEffect(() => {
         dispatch(fetchAllFeeds());
-
         setLoading(false);
     }, []);
 
@@ -47,7 +37,7 @@ const UserPost = ({ }) => {
         <div className={theme === "light" ? "userPost" : "userPost-dark"}>
             {loading ? <PulseLoader size={30} color={"purple"} /> :
                 <>
-                    {/* {sortByDate(postData)} */}
+                    {sortByDate(postData)}
                     {postData.map(post => {
                         return (
                             <Feed postData={post} />

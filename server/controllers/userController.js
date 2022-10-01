@@ -113,3 +113,32 @@ export const users_getFeedUserDetails = async (req, res) => {
         return res.status(500).json({ message: "Internal server error." });
     }
 }
+
+export const users_followUser = async (req, res) => {
+    try {
+        const userId = req.decoded.id;
+        const otherUserId = req.params.id;
+        const userObj = await User.findById(userId);
+        const otherUserObj = await User.findById(otherUserId);
+
+        //if both users are valid
+        if (userObj && otherUserObj) {
+
+            //check if already follow, unfollow
+            if (userObj.following.includes(otherUserId)) {
+                userObj.following = userObj.following.filter(item => item !== otherUserId);
+                otherUserObj.followers = otherUserObj.followers.filter(item => item !== userId);
+            } else {
+                //if not following, follow them
+                userObj.following.push(otherUserId);
+                otherUserObj.followers.push(userId);
+            }
+            userObj.save();
+            otherUserObj.save();
+            return res.status(200).send({ message: "Follow/unfollow user successfully." });
+        }
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ message: "Internal server error." });
+    }
+}

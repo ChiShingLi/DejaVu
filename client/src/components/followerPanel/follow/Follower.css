@@ -1,0 +1,40 @@
+.followerCard {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.followerPhoto>img {
+    position: relative;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+}
+
+.followerDetails {
+    padding-left: 8px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.followerDetails>div:nth-of-type(1) {
+    font-weight: bold;
+}
+
+.followerDetails>div:nth-of-type(2) {
+    font-size: 14px;
+}
+
+.followPanel-follow-btn {
+    font-weight: bold;
+    color: white;
+    height: 50px;
+    width: 100px;
+}
+
+.followPanel>h3 {
+    margin-bottom: 0px;
+}

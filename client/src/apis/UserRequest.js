@@ -48,3 +48,13 @@ export const API_getUserFeedDetails = async (userId) => {
         return { status: false, message: err }
     })
 }
+
+//follow/unfollow user
+export const API_followUser = async (userId) => {
+    return await API.patch(`/user/follow/${userId}`, null,
+        { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }).then((res) => {
+            return { status: true, message: res.data.message };
+        }).catch((err) => {
+            return { status: false, message: err }
+        })
+}

@@ -16,3 +16,10 @@ export const fetchAllFeeds = () => {
         }
     }
 }
+
+export const postFeed = (feedObj) => {
+    return {
+        type: ActionTypes.POST_FEED,
+        payload: feedObj
+    }
+}

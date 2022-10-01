@@ -5,7 +5,7 @@ import { convertImageBase64 } from "../../utilities/ConvertImageBase64"
 import { API_postFeed } from "../../../apis/FeedRequest";
 import { showSuccessNoti, showErrorNoti } from "../../utilities/ShowNotification";
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchAllFeeds } from '../../../redux/actions/feedActions';
+import { fetchAllFeeds, postFeed } from '../../../redux/actions/feedActions';
 
 import "./PostFeed.css";
 const PostFeed = () => {
@@ -21,6 +21,7 @@ const PostFeed = () => {
         photo: "",
         location: ""
     });
+
 
     //image upload
     const handleImage = async (e) => {
@@ -53,7 +54,8 @@ const PostFeed = () => {
         } else {
             if (result.status) {
                 clearAll();
-                dispatch(fetchAllFeeds());
+                //dispatch(fetchAllFeeds());
+                dispatch(postFeed(result.feedObj));
                 showSuccessNoti("Post Feed Successful", "Feed posted.");
             } else {
                 showErrorNoti("Internal Server Error", "Please try again later");
@@ -73,7 +75,7 @@ const PostFeed = () => {
                         <IoImageOutline className="imageIcon" size={38} onClick={() => feedImage.current.click()} />
                     </div>
                     <button className="button shareFeed-btn" onClick={handleSubmit}>Share</button>
-                    <input type="file" ref={feedImage} style={{ display: "none" }} onChange={handleImage} />
+                    <input type="file" ref={feedImage} accept="image/png, image/gif, image/jpeg" style={{ display: "none" }} onChange={handleImage} />
                 </div>
             </div>
             {image ?
