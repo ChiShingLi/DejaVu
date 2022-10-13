@@ -110,3 +110,17 @@ export const feeds_saveFeed = async (req, res) => {
         return res.status(500).json({ message: "Internal server error." });
     }
 }
+
+//get single feed
+export const feeds_getSingleFeed = async (req, res) => {
+    try {
+        const feedObj = await Feed.findById(req.params.id);
+        if (feedObj) {
+            return res.status(200).send({ feedObj: feedObj });
+        } else {
+            return res.status(404).json({ message: "Feed not found." });
+        }
+    } catch (error) {
+        return res.status(500).json({ message: "Internal server error." });
+    }
+}

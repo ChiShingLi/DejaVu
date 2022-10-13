@@ -1,5 +1,5 @@
 import express from "express";
-import { feeds_postFeed, feeds_getAllFeeds, feeds_likeFeed, feeds_commentFeed, feeds_getFeedComment, feeds_saveFeed } from "../controllers/FeedController.js";
+import { feeds_postFeed, feeds_getAllFeeds, feeds_likeFeed, feeds_commentFeed, feeds_getFeedComment, feeds_saveFeed, feeds_getSingleFeed } from "../controllers/FeedController.js";
 import { validateAuth } from "../middlewares/ValidateAuth.js";
 
 const router = express.Router();
@@ -9,5 +9,6 @@ router.patch("/:id", validateAuth, feeds_likeFeed);
 router.patch("/comment/:id", validateAuth, feeds_commentFeed);
 router.get("/comment/:id", feeds_getFeedComment);
 router.patch("/save/:id", validateAuth, feeds_saveFeed);
+router.get("/:id", feeds_getSingleFeed);
 
 export default router;

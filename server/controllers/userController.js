@@ -142,3 +142,21 @@ export const users_followUser = async (req, res) => {
         return res.status(500).json({ message: "Internal server error." });
     }
 }
+
+export const users_getUserProfile = async (req, res) => {
+    try {
+        const username = req.params.username;
+        const userObj = await User.findOne({ username: username });
+        if (userObj) {
+            //remove user password before returning
+            const { password, ...reducedUserObj } = userObj._doc;
+            return res.status(200).send({ userDetails: reducedUserObj });
+        } else {
+            return res.status(500).json({ message: "Internal server error." });
+        }
+
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ message: "Internal server error." });
+    }
+}
