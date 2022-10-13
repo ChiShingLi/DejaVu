@@ -28,6 +28,7 @@
     max-width: 50px;
     max-height: 50px;
     object-fit: cover;
+    cursor: pointer;
 }
 
 .feed-userDetails {
@@ -36,6 +37,7 @@
     align-items: flex-start;
     justify-content: center;
     gap: 3px;
+    cursor: pointer;
 }
 
 .feed-userDetails>div:nth-of-type(1) {

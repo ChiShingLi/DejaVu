@@ -23,3 +23,10 @@ export const postFeed = (feedObj) => {
         payload: feedObj
     }
 }
+
+export const likeUnLikeFeed = (feedObj) => {
+    return {
+        type: ActionTypes.LIKE_UNLIKE_FEED,
+        payload: feedObj
+    }
+}

@@ -15,6 +15,7 @@
     background: linear-gradient(114deg, rgba(176, 136, 74, 1) 0%, rgba(160, 70, 252, 0.7077205882352942) 78%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    cursor: pointer;
 }
 
 .middle-section {

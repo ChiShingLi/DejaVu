@@ -23,12 +23,6 @@ const FollowerPanel = () => {
                     })}
                 </> : <>No one is following you yet.</>
             }
-
-            {/* {followerData.map(follower => {
-                return (
-                    <Follower followerData={follower} />
-                )
-            })} */}
         </div>
     )
 }

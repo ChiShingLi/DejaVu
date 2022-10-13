@@ -1,0 +1,63 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-header {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.profile-profilePhoto>img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: var(--profileBoxShadow);
+    object-fit: fill;
+}
+
+
+.profile-profileDesc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-username {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.profile-profileDesc-Header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-follow-btn {
+    height: 40px;
+    width: 100px;
+}
+
+.profile-desc {
+    margin-top: 20px;
+    height: 100px;
+    width: 300px;
+    line-height: 1.6;
+    overflow: hidden;
+}
+
+.profile-feedSection {
+    margin-top: 20px;
+}
+
+.profile-feedGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(20rem, 25rem));
+    grid-auto-rows: 450px;
+    gap: 15px;
+}

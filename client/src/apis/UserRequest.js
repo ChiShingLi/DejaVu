@@ -58,3 +58,12 @@ export const API_followUser = async (userId) => {
             return { status: false, message: err }
         })
 }
+
+//get user profile
+export const API_getUserProfile = async (username) => {
+    return await API.get(`/user/profile/${username}`).then((res) => {
+        return { status: true, userDetails: res.data.userDetails };
+    }).catch((err) => {
+        return { status: false, message: err }
+    })
+}

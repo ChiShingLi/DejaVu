@@ -63,3 +63,13 @@ export const API_saveFeed = async (feedId) => {
             return { status: false, message: err }
         })
 }
+
+//get single feed
+export const API_getSingleFeed = async (feedId) => {
+    return await API.get(`/feed/${feedId}`)
+        .then((res) => {
+            return { status: true, feedObj: res.data.feedObj };
+        }).catch((err) => {
+            return { status: false, message: err }
+        })
+}

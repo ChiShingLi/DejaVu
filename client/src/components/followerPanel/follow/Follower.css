@@ -4,6 +4,11 @@
     justify-content: space-between;
 }
 
+.followerPhoto,
+.followerDetails {
+    cursor: pointer;
+}
+
 .followerPhoto>img {
     position: relative;
     width: 3.2rem;

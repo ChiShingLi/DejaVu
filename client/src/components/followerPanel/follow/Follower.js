@@ -3,9 +3,11 @@ import { API_followUser, API_getUserFeedDetails } from "../../../apis/UserReques
 import { showSuccessNoti, showErrorNoti } from '../../utilities/ShowNotification.js';
 import { useSelector, useDispatch } from 'react-redux';
 import { addFollower, removeFollower } from '../../../redux/actions/userActions';
+import { useNavigate } from 'react-router-dom';
 
 import "./Follower.css"
 const Follower = ({ followerId }) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const userDetails = useSelector((state) => state.user);
   const [followerObj, setFollowerObj] = useState({
@@ -55,8 +57,8 @@ const Follower = ({ followerId }) => {
 
   return (
     <div className="followerCard">
-      <div className="followerPhoto">{followerObj.profilePhoto !== null ? <img src={followerObj.profilePhoto} alt="Follower Profile" /> : <img src="/images/noProfilePhoto.jpg" alt="Follower Profile" />}</div>
-      <div className="followerDetails">
+      <div className="followerPhoto" onClick={() => { navigate(`/profile/${followerObj.username}`) }}>{followerObj.profilePhoto !== null ? <img src={followerObj.profilePhoto} alt="Follower Profile" /> : <img src="/images/noProfilePhoto.jpg" alt="Follower Profile" />}</div>
+      <div className="followerDetails" onClick={() => { navigate(`/profile/${followerObj.username}`) }}>
         <div className="followerName">{followerObj.fullname}</div>
         <div className="followerUsername">@{followerObj.username}</div>
       </div>

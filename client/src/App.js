@@ -4,6 +4,7 @@ import "./App.css";
 import Navbar from './components/navbar/Navbar';
 import Home from './pages/home/Home';
 import Main from './pages/main/Main';
+import Profile from './pages/profile/Profile'
 import { ThemeContext } from "./contexts/ThemeContext";
 import { RequireAuthContext } from "./contexts/RequireAuthContext";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -25,6 +26,8 @@ const App = () => {
                         <Routes>
                             <Route path="/" element={<Main />} />
                             <Route path="/home" element={<RequireAuthContext><Home /></RequireAuthContext>} />
+                            <Route path="/profile/:username" element={<Profile />} />
+                            <Route path="*" element={<Main />} />
                         </Routes>
                     </div>
                 </NotificationsProvider>

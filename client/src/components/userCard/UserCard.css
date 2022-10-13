@@ -35,6 +35,7 @@
     border-radius: 50%;
     box-shadow: var(--profileBoxShadow);
     object-fit: fill;
+    cursor: pointer;
 }
 
 .userCard-dark>.profilePhoto>img {

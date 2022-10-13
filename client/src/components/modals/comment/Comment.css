@@ -20,4 +20,5 @@
 
 .commentDivider>.commenter {
     font-weight: bold;
+    cursor: pointer;
 }

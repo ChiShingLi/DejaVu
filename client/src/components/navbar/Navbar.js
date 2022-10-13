@@ -20,15 +20,15 @@ const Navbar = () => {
         <div className={theme === "light" ? "navbar" : "navbar-dark"}>
             <div className="logo-section">
                 <div className="logoText">
-                    DejaVu
+                    <a href="/">DejaVu</a>
                 </div>
             </div>
             <div className="middle">
                 <div className="middle-section">
-                    <div className="searchContent">
+                    {/* <div className="searchContent">
                         <span className="searchIcon"><IoSearchOutline size={20} color={"grey"} /></span>
                         <input type="text" className="searchBox" placeholder="What's happening?" />
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <div className="right-section">

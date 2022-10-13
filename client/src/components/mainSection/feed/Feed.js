@@ -3,14 +3,18 @@ import React, { useContext, useEffect, useState, useRef } from 'react'
 import { BsThreeDots } from "react-icons/bs";
 import { IoHeartOutline, IoHeart, IoSend, IoChatbubbleOutline, IoShareSocialOutline, IoBookmarkOutline, IoBookmark } from "react-icons/io5";
 import { ThemeContext } from '../../../contexts/ThemeContext';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { API_getUserFeedDetails } from "../../../apis/UserRequest";
 import { API_likeFeed, API_commentFeed, API_saveFeed } from "../../../apis/FeedRequest";
+import { likeUnLikeFeed } from '../../../redux/actions/feedActions';
 import FeedCommentModal from "../../modals/feedCommentModal/FeedCommentModal"
 import { showSuccessNoti, showErrorNoti } from '../../utilities/ShowNotification';
+import { useNavigate } from "react-router-dom";
+
 import "./Feed.css"
 const Feed = (props) => {
     const { theme } = useContext(ThemeContext);
+    const dispatch = useDispatch();
     const { _id, poster, photo, desc, location, likes, shares, comment, saved } = props.postData;
     const userObj = useSelector((state) => state.user);
     const [userDetail, setUserDetail] = useState({
@@ -19,6 +23,7 @@ const Feed = (props) => {
         profilePhoto: ""
     });
 
+    const navigate = useNavigate();
     const commentRef = useRef();
     const [modalOpened, setModalOpened] = useState(false);
     const [liked, setLiked] = useState(likes.includes(userObj._id));
@@ -47,6 +52,10 @@ const Feed = (props) => {
         setCommentMessage(e.target.value);
     }
 
+    //TODO:: testing likes funtion
+    // const testingLIkes = (feedId) => {
+    //     dispatch(likeUnlikeFeed(feedId));
+    // }
     // post comment
     const postComment = async () => {
         //make sure the comment message is not empty
@@ -85,13 +94,14 @@ const Feed = (props) => {
         getIndividualUser(poster);
     }, [])
 
+    //TODO: username bug
     return (
         <div className={theme === "light" ? "feed" : "feed-dark"}>
             <div className="header">
-                <div className="profilePhoto feed-profilePhoto">
+                <div className="profilePhoto feed-profilePhoto" onClick={() => { navigate(`/profile/${userDetail.username}`) }}>
                     {userDetail.profilePhoto !== null ? <img src={userDetail.profilePhoto} alt="" /> : <img src="/images/noProfilePhoto.jpg" alt="" />}
                 </div>
-                <div className="feed-userDetails">
+                <div className="feed-userDetails" onClick={() => { navigate(`/profile/${userDetail.username}`) }}>
                     <div className="username">{userDetail.fullName}</div>
                     <div className="username">@{userDetail.username}</div>
                 </div>

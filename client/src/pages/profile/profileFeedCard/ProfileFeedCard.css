@@ -1,0 +1,7 @@
+.profileFeed-description {
+    overflow: hidden;
+}
+
+#profileFeed-card {
+    cursor: pointer;
+}

@@ -1,0 +1,119 @@
+.UserCardModal {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.profileFeed-feedPhoto>img {
+    width: 650px;
+    height: 650px;
+    box-shadow: var(--profileBoxShadow);
+    border-radius: 8px;
+    object-fit: fill;
+}
+
+.profileFeed-details {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%
+}
+
+.profileFeed-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profileFeed-profilePhoto>img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    box-shadow: var(--profileBoxShadow);
+    object-fit: fill;
+}
+
+.profileFeed-fullName {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.profileFeed-username {
+    font-size: 13px;
+}
+
+.profileFeed-body {
+    display: flex;
+    margin-top: 10px;
+    gap: 10px;
+    align-items: center;
+}
+
+.profileFeed-description {
+    width: 100%;
+    overflow-wrap: break-word;
+    height: 100%;
+}
+
+.profileFeed-date {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.profileFeed-footer {
+    margin-top: auto;
+}
+
+.profileFeed-socialActions {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.profileFeed-footer>.profileFeed-commentBox {
+    margin-top: 10px;
+    padding-left: 6px;
+    padding-right: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 8px;
+    width: 100%;
+    height: 3.2rem;
+    background: var(--inputBg);
+    border-radius: 50px;
+}
+
+.profileFeed-commentBox>.feedCommentInput {
+    height: 90%;
+    width: 100%;
+    outline: none;
+    border: none;
+    background: transparent;
+    font-size: 18px;
+}
+
+.profileFeed-socialActions>.feedHeart:hover,
+.profileFeed-socialActions>.feedShare:hover,
+.profileFeed-socialActions>.feedSave:hover {
+    cursor: pointer;
+}
+
+.profileFeed-noComments {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgba(128, 127, 127, 0.914);
+}
+
+.profileFeed-userComments {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.profileFeed-userComments-username {
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
