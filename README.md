@@ -113,10 +113,10 @@
 - [x] Light/dark theme with transition
 - [x] Spinner Loader and notification feature 
 - [ ] Weather widget card
-- [ ] User Profile details Page
-  - [ ] Personal Feeds
-- [ ] Project about page
-- [ ] Protected routes 
+- [x] User Profile details Page
+  - [x] Personal Feeds
+- [ ] Project "About" page
+- [x] Protected routes 
 
 
 ## Backend Server Roadmap
@@ -125,10 +125,10 @@
 - [x] Post Feeds Logics:
   - [x] Create Feed
   - [ ] Delete Feed
-  - [] Update Feed
+  - [ ] Update Feed
 - [ ] Feeds Logic:
   - [x] Display all user Feed
-  - [x] Display only Self and Following user Feeds
+  - [ ] Display only Self and Following user Feeds
   - [ ] Display Feed by timestamp
 - [ ] Follower logics:
   - [x] Follow a user
