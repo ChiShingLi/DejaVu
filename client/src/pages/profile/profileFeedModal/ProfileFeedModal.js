@@ -40,9 +40,9 @@ const ProfileFeedModal = ({ feedData, profileUserData, modalOpened, setModalOpen
         if (result.status) {
             setLiked((prev) => !prev);
             if (liked) {
-                showSuccessNoti("Feed Unliked!💔", "Like Feed Successfully.")
+                showSuccessNoti("Feed Unliked!💔", "Unlike feed Successfully.")
             } else {
-                showSuccessNoti("Feed Liked!❤️", "Unlike Feed Successfully.")
+                showSuccessNoti("Feed Liked!❤️", "Like feed Successfully.")
             }
         }
     }
@@ -97,7 +97,8 @@ const ProfileFeedModal = ({ feedData, profileUserData, modalOpened, setModalOpen
         >
             <div className="UserCardModal">
                 <div className="profileFeed-feedPhoto">
-                    <img src={feedData.photo} alt="" />
+                    {feedData.photo !== "" ? <img src={feedData.photo} alt="feed" /> : <div className="profileFeed-feedPhoto-unavailable">Photo Not Available</div>}
+
                 </div>
                 <div className="profileFeed-details">
                     <div className="profileFeed-header">

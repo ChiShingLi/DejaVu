@@ -15,7 +15,6 @@ const App = () => {
     return (
         <Router>
             <ThemeContext.Provider value={{ theme, setTheme }}>
-
                 <NotificationsProvider>
                     <div className="App" id={theme}>
                         <div className="firework2" style={{ top: "10px" }} />

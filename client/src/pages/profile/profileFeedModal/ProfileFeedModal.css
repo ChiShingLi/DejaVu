@@ -54,6 +54,13 @@
     height: 100%;
 }
 
+.profileFeed-feedPhoto-unavailable {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgba(128, 127, 127, 0.914);
+}
+
 .profileFeed-date {
     margin-top: 10px;
     font-size: 12px;

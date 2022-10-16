@@ -30,7 +30,7 @@ const ProfileFeedCard = ({ feedId, profileUserObj }) => {
                     : <></>}
             </Card.Section>
 
-            <Group position="apart" mt="md" mb="xs">
+            <Group position="apart" mt="md" mb="xs" onClick={() => setModalOpened(true)}>
                 <div className="profileFeed-description">
                     <Text weight={500}>{feedObj.desc}</Text>
                 </div>

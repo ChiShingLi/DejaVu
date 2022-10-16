@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { IoSearchOutline, IoSunnyOutline, IoMoonOutline, IoSettingsOutline, IoLogOutOutline } from 'react-icons/io5'
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { useNavigate } from 'react-router-dom';
+import { Tooltip } from '@mantine/core';
 import "./Navbar.css"
 
 const Navbar = () => {
@@ -32,9 +33,17 @@ const Navbar = () => {
                 </div>
             </div>
             <div className="right-section">
-                <div className="icon1" onClick={toggleTheme}>{theme === "dark" ? <IoSunnyOutline size={30} color={"orange"} /> : <IoMoonOutline size={30} color={"rgba(240, 238, 84, 0.74)"} />}</div>
-                <div className="icon2"><IoSettingsOutline size={30} /></div>
-                <div className="icon3"><IoLogOutOutline size={30} onClick={handleLogout} /></div>
+                <Tooltip label={theme === "dark" ? "Light Mode" : "Dark Mode"}>
+                    <div className="icon1" onClick={toggleTheme}>{theme === "dark" ? <IoSunnyOutline size={30} color={"orange"} /> : <IoMoonOutline size={30} color={"rgba(240, 238, 84, 0.74)"} />}</div>
+                </Tooltip>
+                <Tooltip label="Settings">
+                    <div className="icon2"><IoSettingsOutline size={30} /></div>
+                </Tooltip>
+                <Tooltip label="Logout">
+                    <div className="icon3">
+                        {localStorage.getItem("token") == null ? <></> : <IoLogOutOutline size={30} onClick={handleLogout} />}
+                    </div>
+                </Tooltip>
             </div>
         </div>
     )
