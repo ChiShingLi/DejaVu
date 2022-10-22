@@ -123,14 +123,15 @@
 - [x] User login
 - [x] User signup
 - [x] Post Feeds Logics:
+  - [x] Fetch Feed
   - [x] Create Feed
-  - [ ] Delete Feed
+  - [x] Delete Feed
   - [ ] Update Feed
 - [ ] Feeds Logic:
   - [x] Display all user Feed
   - [ ] Display only Self and Following user Feeds
   - [ ] Display Feed by timestamp
-- [ ] Follower logics:
+- [x] Follower logics:
   - [x] Follow a user
   - [x] Unfollow a user
 
