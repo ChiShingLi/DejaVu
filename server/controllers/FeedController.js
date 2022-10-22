@@ -7,7 +7,7 @@ export const feeds_postFeed = async (req, res) => {
         const feedObj = await new Feed({ ...req.body, poster: req.decoded.id }).save();
         if (feedObj) {
             //update user feedCount
-            const userObj = await User.findByIdAndUpdate(req.decoded.id, { $push: { feeds: feedObj._id } });
+            const userObj = await User.findByIdAndUpdate(req.decoded.id, { $push: { feeds: feedObj._id.toString() } });
             if (userObj) {
                 return res.status(201).send({ feedObj: feedObj })
             } else {
@@ -116,6 +116,67 @@ export const feeds_getSingleFeed = async (req, res) => {
     try {
         const feedObj = await Feed.findById(req.params.id);
         if (feedObj) {
+            return res.status(200).send({ feedObj: feedObj });
+        } else {
+            return res.status(404).json({ message: "Feed not found." });
+        }
+    } catch (error) {
+        return res.status(500).json({ message: "Internal server error." });
+    }
+}
+
+//delete feed
+export const feed_deleteFeed = async (req, res) => {
+    try {
+        //check if the user is the original author
+        const userId = req.decoded.id;
+        const feedId = req.params.id;
+        const userObj = await User.findById(req.decoded.id);
+        const feedObj = await Feed.findById(req.params.id);
+        if (userId == feedObj.poster) {
+            //remove user feed from their profile
+            const updatedFeed = userObj.feeds.filter(feed => feed !== feedId);
+            const RemovedSuccessful = await User.findByIdAndUpdate(userId, { feeds: updatedFeed });
+            //delete user feed
+            Feed.findByIdAndDelete(req.params.id, (err, deletedDoc) => {
+                if (err) {
+                    return res.status(500).json({ message: "Internal server error." });
+                } else {
+                    if (RemovedSuccessful) {
+                        return res.status(200).send({ message: "Deleted feed successfully." });
+                    }
+                }
+            });
+        } else {
+            return res.status(401).json({ message: "User unauthorized." });
+        }
+    } catch (error) {
+        return res.status(500).json({ message: "Internal server error." });
+    }
+}
+
+//edit feed
+export const feed_editFeed = async (req, res) => {
+    try {
+        //get feedid
+        const feedId = req.params.id;
+        const feedData = req.body.feedData;
+        const feedObj = await Feed.findById(feedId);
+
+        if (feedObj) {
+            //check if they are the original poster of the feed
+            if (feedObj.poster == req.decoded.id) {
+                //update photo & feed description if possible
+                if (feedObj.photo != feedData.photo) {
+                    feedObj.photo = feedData.photo;
+                }
+                if (feedObj.desc != feedData.desc) {
+                    feedObj.desc = feedData.desc;
+                }
+                feedObj.save();
+            } else {
+                return res.status(401).json({ message: "User unauthorized." });
+            }
             return res.status(200).send({ feedObj: feedObj });
         } else {
             return res.status(404).json({ message: "Feed not found." });
