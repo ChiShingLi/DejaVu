@@ -4,6 +4,7 @@ import UserCardModal from '../modals/userCardModal/UserCardModal';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
+import { Tooltip } from '@mantine/core';
 
 import "./UserCard.css"
 const UserCard = () => {
@@ -18,9 +19,11 @@ const UserCard = () => {
                 <IoSettingsOutline size={25} onClick={() => setModalOpened(true)} />
                 <UserCardModal modalOpened={modalOpened} setModalOpened={setModalOpened} />
             </div>
-            <div className="profilePhoto" onClick={() => { navigate(`/profile/${userDetails.username}`) }}>
-                {userDetails.profilePhoto !== null ? <img src={userDetails.profilePhoto} alt="Profile" /> : <img src="/images/noProfilePhoto.jpg" alt="Profile" />}
-            </div>
+            <Tooltip label="View My Profile" position="top" withArrow>
+                <div className="profilePhoto" onClick={() => { navigate(`/profile/${userDetails.username}`) }}>
+                    {userDetails.profilePhoto !== null ? <img src={userDetails.profilePhoto} alt="Profile" /> : <img src="/images/noProfilePhoto.jpg" alt="Profile" />}
+                </div>
+            </Tooltip>
             <div className="userDetails">
                 <div className="name">{userDetails.fullName}</div>
                 <div className="username">@{userDetails.username}</div>

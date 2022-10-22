@@ -20,3 +20,17 @@ export const removeFollower = (followerObj) => {
         payload: followerObj
     }
 };
+
+export const decrementFeedCount = (feedId) => {
+    return {
+        type: ActionTypes.DECREMENT_USER_FEED_COUNT,
+        payload: feedId
+    }
+};
+
+export const incrementFeedCount = feedId => {
+    return {
+        type: ActionTypes.INCREMENT_USER_FEED_COUNT,
+        payload: feedId
+    }
+}

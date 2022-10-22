@@ -1,0 +1,11 @@
+.DeleteFeedModal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.deleteFeedModal-btnSelections {
+    display: flex;
+    gap: 8px;
+    justify-content: space-evenly;
+}

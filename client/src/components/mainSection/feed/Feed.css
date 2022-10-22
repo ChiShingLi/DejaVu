@@ -1,5 +1,6 @@
 .feed,
 .feed-dark {
+    position: relative;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -60,6 +61,8 @@
 }
 
 .feedOption {
+    position: absolute;
+    right: 20px;
     margin-left: auto;
     cursor: pointer;
 }

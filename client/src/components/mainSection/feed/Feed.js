@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState, useRef } from 'react'
 
 import { BsThreeDots } from "react-icons/bs";
-import { IoHeartOutline, IoHeart, IoSend, IoChatbubbleOutline, IoShareSocialOutline, IoBookmarkOutline, IoBookmark } from "react-icons/io5";
+import { IoHeartOutline, IoHeart, IoSend, IoChatbubbleOutline, IoShareSocialOutline, IoBookmarkOutline, IoBookmark, IoSettingsOutline, IoTrashOutline, IoPersonCircleOutline } from "react-icons/io5";
 import { ThemeContext } from '../../../contexts/ThemeContext';
 import { useDispatch, useSelector } from "react-redux";
 import { API_getUserFeedDetails } from "../../../apis/UserRequest";
@@ -10,6 +10,9 @@ import { likeUnLikeFeed } from '../../../redux/actions/feedActions';
 import FeedCommentModal from "../../modals/feedCommentModal/FeedCommentModal"
 import { showSuccessNoti, showErrorNoti } from '../../utilities/ShowNotification';
 import { useNavigate } from "react-router-dom";
+import { Menu } from '@mantine/core';
+import DeleteFeedModal from "./deleteFeedModal/DeleteFeedModal";
+import EditFeedModal from './editFeedModal/EditFeedModal';
 
 import "./Feed.css"
 const Feed = (props) => {
@@ -32,6 +35,8 @@ const Feed = (props) => {
     const [commentMessage, setCommentMessage] = useState("");
     const [isSaved, setIsSaved] = useState(saved.includes(userObj._id));
     const [savedCount, setSavedCount] = useState(saved.length);
+    const [deleteFeedModalOpened, setDeleteFeedModalOpened] = useState(false);
+    const [editFeedModalOpened, setEditFeedModalOpened] = useState(false);
 
     const handleLike = async (feedId) => {
         const result = await API_likeFeed(feedId);
@@ -52,10 +57,6 @@ const Feed = (props) => {
         setCommentMessage(e.target.value);
     }
 
-    //TODO:: testing likes funtion
-    // const testingLIkes = (feedId) => {
-    //     dispatch(likeUnlikeFeed(feedId));
-    // }
     // post comment
     const postComment = async () => {
         //make sure the comment message is not empty
@@ -94,7 +95,6 @@ const Feed = (props) => {
         getIndividualUser(poster);
     }, [])
 
-    //TODO: username bug
     return (
         <div className={theme === "light" ? "feed" : "feed-dark"}>
             <div className="header">
@@ -105,7 +105,26 @@ const Feed = (props) => {
                     <div className="username">{userDetail.fullName}</div>
                     <div className="username">@{userDetail.username}</div>
                 </div>
-                <div className="feedOption"><BsThreeDots size={30} /></div>
+                <Menu >
+                    <EditFeedModal editFeedModalOpened={editFeedModalOpened} setEditFeedModalOpened={setEditFeedModalOpened} feedId={_id} feedData={props.postData} />
+                    <DeleteFeedModal deleteFeedModalOpened={deleteFeedModalOpened} setDeleteFeedModalOpened={setDeleteFeedModalOpened} feedId={_id} />
+                    <Menu.Target>
+                        <div className="feedOption">
+                            <BsThreeDots size={30} />
+                        </div>
+                    </Menu.Target>
+                    <Menu.Dropdown>
+                        <Menu.Label>User</Menu.Label>
+                        <Menu.Item icon={<IoPersonCircleOutline size={15} />} onClick={() => { navigate(`/profile/${userDetail.username}`) }}>Profile</Menu.Item>
+                        {poster == userObj._id ?
+                            <div className="feed-dropDownManagePanel">
+                                <Menu.Label>Manage</Menu.Label>
+                                <Menu.Item icon={<IoSettingsOutline size={15} />} onClick={() => setEditFeedModalOpened(true)} >Edit</Menu.Item>
+                                <Menu.Item color="red" icon={<IoTrashOutline size={15} />} onClick={() => setDeleteFeedModalOpened(true)}>Delete</Menu.Item>
+                            </div>
+                            : <></>}
+                    </Menu.Dropdown>
+                </Menu>
             </div>
             <div className="feedPhoto">
                 {photo ? <img src={photo} alt="feed" /> : <></>}
@@ -129,7 +148,7 @@ const Feed = (props) => {
                     <FeedCommentModal modalOpened={modalOpened} setModalOpened={setModalOpened} feedId={_id} />
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { IoSearchOutline, IoSunnyOutline, IoMoonOutline, IoSettingsOutline, IoLogOutOutline } from 'react-icons/io5'
+import { IoSearchOutline, IoSunnyOutline, IoMoonOutline, IoSettingsOutline, IoLogOutOutline, IoInformationCircleOutline } from 'react-icons/io5'
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { useNavigate } from 'react-router-dom';
 import { Tooltip } from '@mantine/core';
@@ -36,11 +36,14 @@ const Navbar = () => {
                 <Tooltip label={theme === "dark" ? "Light Mode" : "Dark Mode"}>
                     <div className="icon1" onClick={toggleTheme}>{theme === "dark" ? <IoSunnyOutline size={30} color={"orange"} /> : <IoMoonOutline size={30} color={"rgba(240, 238, 84, 0.74)"} />}</div>
                 </Tooltip>
+                <Tooltip label="About this project">
+                    <div className="icon2"><IoInformationCircleOutline size={33} /></div>
+                </Tooltip>
                 <Tooltip label="Settings">
-                    <div className="icon2"><IoSettingsOutline size={30} /></div>
+                    <div className="icon3"><IoSettingsOutline size={30} /></div>
                 </Tooltip>
                 <Tooltip label="Logout">
-                    <div className="icon3">
+                    <div className="icon4">
                         {localStorage.getItem("token") == null ? <></> : <IoLogOutOutline size={30} onClick={handleLogout} />}
                     </div>
                 </Tooltip>

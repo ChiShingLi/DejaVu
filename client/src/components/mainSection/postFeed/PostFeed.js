@@ -5,7 +5,7 @@ import { convertImageBase64 } from "../../utilities/ConvertImageBase64"
 import { API_postFeed } from "../../../apis/FeedRequest";
 import { showSuccessNoti, showErrorNoti } from "../../utilities/ShowNotification";
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchAllFeeds, postFeed } from '../../../redux/actions/feedActions';
+import { fetchAllFeeds, postFeed, handlePostFeed } from '../../../redux/actions/feedActions';
 
 import "./PostFeed.css";
 const PostFeed = () => {
@@ -55,7 +55,7 @@ const PostFeed = () => {
             if (result.status) {
                 clearAll();
                 //dispatch(fetchAllFeeds());
-                dispatch(postFeed(result.feedObj));
+                dispatch(handlePostFeed(result.feedObj, result.feedObj._id));
                 showSuccessNoti("Post Feed Successful", "Feed posted.");
             } else {
                 showErrorNoti("Internal Server Error", "Please try again later");
@@ -72,7 +72,7 @@ const PostFeed = () => {
                 <div className="postFeedInput">
                     <div className="feedInputWrapper">
                         <input type="text" name="desc" placeholder="What's on your mind?" maxLength={100} value={feedObj.desc} onChange={handleChange} />
-                        <IoImageOutline className="imageIcon" size={38} onClick={() => feedImage.current.click()} />
+                        <IoImageOutline className="imageIcon" size={45} onClick={() => feedImage.current.click()} />
                     </div>
                     <button className="button shareFeed-btn" onClick={handleSubmit}>Share</button>
                     <input type="file" ref={feedImage} accept="image/png, image/gif, image/jpeg" style={{ display: "none" }} onChange={handleImage} />

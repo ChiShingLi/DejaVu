@@ -23,7 +23,7 @@ export const API_getAllFeeds = async () => {
 
 //like a feed
 export const API_likeFeed = async (feedId) => {
-    return await API.patch(`/feed/${feedId}`, null,
+    return await API.patch(`/feed/like/${feedId}`, null,
         { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } })
         .then((res) => {
             return { status: true, feedObj: res.data.feedObj };
@@ -67,6 +67,28 @@ export const API_saveFeed = async (feedId) => {
 //get single feed
 export const API_getSingleFeed = async (feedId) => {
     return await API.get(`/feed/${feedId}`)
+        .then((res) => {
+            return { status: true, feedObj: res.data.feedObj };
+        }).catch((err) => {
+            return { status: false, message: err }
+        })
+}
+
+//delete feed
+export const API_deleteFeed = async (feedId) => {
+    return await API.delete(`/feed/delete/${feedId}`,
+        { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } })
+        .then((res) => {
+            return { status: true, message: res.data.message };
+        }).catch((err) => {
+            return { status: false, message: err }
+        })
+}
+
+//edit feed
+export const API_editFeed = async (feedData, feedId) => {
+    return await API.patch(`/feed/${feedId}`, { feedData: feedData },
+        { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } })
         .then((res) => {
             return { status: true, feedObj: res.data.feedObj };
         }).catch((err) => {

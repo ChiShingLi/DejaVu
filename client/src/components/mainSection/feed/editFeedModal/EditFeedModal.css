@@ -1,0 +1,42 @@
+.editFeedModal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.editFeedModal-photo {
+    width: 90%;
+    cursor: pointer;
+}
+
+.editFeedModal-noPhoto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.noPhotoIcon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.editFeedModal-desc {
+    width: 50%;
+}
+
+
+.editFeedModal-btnSection {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+.editFeedModal-confirmBtn {
+    height: 100px;
+}

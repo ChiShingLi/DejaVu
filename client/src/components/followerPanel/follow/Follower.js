@@ -4,6 +4,7 @@ import { showSuccessNoti, showErrorNoti } from '../../utilities/ShowNotification
 import { useSelector, useDispatch } from 'react-redux';
 import { addFollower, removeFollower } from '../../../redux/actions/userActions';
 import { useNavigate } from 'react-router-dom';
+import { Tooltip } from '@mantine/core';
 
 import "./Follower.css"
 const Follower = ({ followerId }) => {
@@ -57,13 +58,16 @@ const Follower = ({ followerId }) => {
 
   return (
     <div className="followerCard">
-      <div className="followerPhoto" onClick={() => { navigate(`/profile/${followerObj.username}`) }}>{followerObj.profilePhoto !== null ? <img src={followerObj.profilePhoto} alt="Follower Profile" /> : <img src="/images/noProfilePhoto.jpg" alt="Follower Profile" />}</div>
+      <Tooltip label="View Profile" position="left" withArrow>
+        <div className="followerPhoto" onClick={() => { navigate(`/profile/${followerObj.username}`) }}>{followerObj.profilePhoto !== null ? <img src={followerObj.profilePhoto} alt="Follower Profile" /> : <img src="/images/noProfilePhoto.jpg" alt="Follower Profile" />}</div>
+      </Tooltip>
       <div className="followerDetails" onClick={() => { navigate(`/profile/${followerObj.username}`) }}>
+
         <div className="followerName">{followerObj.fullname}</div>
         <div className="followerUsername">@{followerObj.username}</div>
       </div>
       <button className="button followPanel-follow-btn" onClick={handleFollow}>{isFollowing ? "Unfollow" : "Follow"}</button>
-    </div>
+    </div >
   )
 }
 
