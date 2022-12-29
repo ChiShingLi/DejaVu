@@ -22,11 +22,14 @@ const NewsFeedModal = ({ newsObj, modalOpened, setModalOpened }) => {
             <div className="newsFeedModal">
                 <div className="title"><h2>{newsObj.title}</h2></div>
                 <div className="newsSource">
-                    <div className="author">By: {newsObj.source.name}</div>
-                    <div className="publishedDate">{moment(newsObj.publishedAt).format("YYYY/MM/DD @ HH:MM a")}</div>
+                    <div className="author">By: {newsObj.source}</div>
+                    <div className="publishedDate">{moment(newsObj.published_at).format("YYYY/MM/DD @ HH:MM a")}</div>
+                </div>
+                <div className="sourceLink">
+                    Source: {newsObj.url}
                 </div>
                 <div className="newsPhoto">
-                    <img src={newsObj.urlToImage} alt={newsObj.source.name} />
+                    <img src={newsObj.image_url} alt={newsObj.source} />
                 </div>
                 <div className="description">
                     {newsObj.description}

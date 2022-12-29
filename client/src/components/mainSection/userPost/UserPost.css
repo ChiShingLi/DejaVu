@@ -6,3 +6,13 @@
     width: 100%;
     gap: 1rem;
 }
+
+.userPost-controller {
+    width: 100%;
+}
+
+.userPost-selector {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 25px;
+}

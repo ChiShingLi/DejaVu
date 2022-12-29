@@ -6,7 +6,7 @@ import { ThemeContext } from '../../../contexts/ThemeContext';
 import "./NewsFeed.css"
 const NewsFeed = (props) => {
     const { newsObj } = props;
-    const dateFromNow = moment(newsObj.publishedAt).fromNow();
+    const dateFromNow = moment(newsObj.published_at).fromNow();
     const [modalOpened, setModalOpened] = useState(false);
     const { theme, setTheme } = useContext(ThemeContext);
 
@@ -14,13 +14,13 @@ const NewsFeed = (props) => {
         <div className={theme === "light" ? "newsFeed" : "newsFeed-dark"} >
             <NewsFeedModal newsObj={newsObj} modalOpened={modalOpened} setModalOpened={setModalOpened} />
             <div className="header">
-                <div className="newsSource">{newsObj.source.name}</div>
+                <div className="newsSource">{newsObj.source}</div>
                 <div className="date">| {dateFromNow}</div>
             </div>
             <div className="newsFeedDetails" onClick={() => setModalOpened(true)}>
                 <div className="headline">{newsObj.title}</div>
                 <div className="newsFeedImage">
-                    <img src={newsObj.urlToImage} alt="News Feed Image" />
+                    <img src={newsObj.image_url} alt="News Feed Image" />
                 </div>
             </div>
         </div>

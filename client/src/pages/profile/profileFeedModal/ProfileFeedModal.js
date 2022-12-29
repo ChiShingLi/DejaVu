@@ -95,7 +95,7 @@ const ProfileFeedModal = ({ feedData, profileUserData, modalOpened, setModalOpen
             transitionTimingFunction="ease"
             withCloseButton={false}
         >
-            <div className="UserCardModal">
+            <div className="profileFeed-UserCardModal">
                 <div className="profileFeed-feedPhoto">
                     {feedData.photo !== "" ? <img src={feedData.photo} alt="feed" /> : <div className="profileFeed-feedPhoto-unavailable">Photo Not Available</div>}
 

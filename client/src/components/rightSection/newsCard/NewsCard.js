@@ -9,9 +9,9 @@ const NewsCard = () => {
     const { theme } = useContext(ThemeContext);
     const [newsData, setNewsData] = useState(null);
     const getNews = () => {
-        axios.get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.REACT_APP_NEWS_API_KEY}&pageSize=5&category=science`)
+        axios.get(`https://api.thenewsapi.com/v1/news/top?api_token=${process.env.REACT_APP_NEWS_API_KEY}`)
             .then(res => {
-                const newsResult = res.data.articles;
+                const newsResult = res.data.data;
                 setNewsData(newsResult);
             })
     }

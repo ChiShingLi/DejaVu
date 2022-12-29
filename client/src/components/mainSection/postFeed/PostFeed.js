@@ -48,13 +48,17 @@ const PostFeed = () => {
 
     //post feed to server
     const handleSubmit = async () => {
-        const result = await API_postFeed(feedObj);
+
         if (feedObj.desc.trim() === "") {
             showErrorNoti("Missing Your Thoughts", "Please tell us what's on your mind.");
-        } else {
+        }
+        else if (feedObj.photo.trim() === "") {
+            showErrorNoti("Missing Feed Photo", "Please show us what it's like.");
+        }
+        else {
+            const result = await API_postFeed(feedObj);
             if (result.status) {
                 clearAll();
-                //dispatch(fetchAllFeeds());
                 dispatch(handlePostFeed(result.feedObj, result.feedObj._id));
                 showSuccessNoti("Post Feed Successful", "Feed posted.");
             } else {
