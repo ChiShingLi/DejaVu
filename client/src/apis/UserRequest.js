@@ -67,3 +67,15 @@ export const API_getUserProfile = async (username) => {
         return { status: false, message: err }
     })
 }
+
+
+//change user password
+export const API_changeUserPassword = async (data) => {
+    return await API.patch(`/user/changePassword`, data,
+        { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
+    ).then((res) => {
+        return { status: true };
+    }).catch((err) => {
+        return { status: false, message: err }
+    })
+}

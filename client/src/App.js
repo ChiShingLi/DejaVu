@@ -9,6 +9,8 @@ import { ThemeContext } from "./contexts/ThemeContext";
 import { RequireAuthContext } from "./contexts/RequireAuthContext";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { NotificationsProvider } from '@mantine/notifications'
+import About from './pages/about/About';
+import Settings from './pages/settings/Settings';
 
 const App = () => {
     const [theme, setTheme] = useState("light");
@@ -24,8 +26,10 @@ const App = () => {
                         <Navbar />
                         <Routes>
                             <Route path="/" element={<Main />} />
+                            <Route path="/about" element={<About />} />
                             <Route path="/home" element={<RequireAuthContext><Home /></RequireAuthContext>} />
                             <Route path="/profile/:username" element={<Profile />} />
+                            <Route path="/settings" element={<RequireAuthContext><Settings /></RequireAuthContext>} />
                             <Route path="*" element={<Main />} />
                         </Routes>
                     </div>

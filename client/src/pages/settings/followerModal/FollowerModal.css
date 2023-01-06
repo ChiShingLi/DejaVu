@@ -1,0 +1,20 @@
+.followerModal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 8px;
+}
+
+.followerModal>.followerModal-title {
+    font-size: x-large;
+    font-weight: bolder;
+    padding: 20px;
+}
+
+.followerModal>.followerModal-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}

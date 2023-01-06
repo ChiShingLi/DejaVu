@@ -1,0 +1,16 @@
+.profile-tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.profile-tile>.profile-name {
+    font-weight: bold;
+}
+
+.followerProfilePhoto>img {
+    height: 80px;
+    width: 80px;
+}

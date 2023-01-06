@@ -1,0 +1,52 @@
+.settings-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.settings-box {
+    width: 50%;
+    height: 50%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.settings-box>.settings-title {
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bolder;
+    padding: 20px;
+}
+
+.settings-box>.settings-grid {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, 150px);
+    gap: 15px;
+}
+
+.settings-tile {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: var(--feedCardColor);
+    outline: 1px solid var(--outlineColor);
+    box-shadow: var(--profileBoxShadow);
+    width: 80%;
+    height: 80px;
+}
+
+.settings-tile:hover {
+    background-color: var(--outlineFeedColor);
+}
+
+.tile-description {
+    text-align: center;
+    font-weight: bold;
+}

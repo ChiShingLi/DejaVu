@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { IoSearchOutline, IoSunnyOutline, IoMoonOutline, IoSettingsOutline, IoLogOutOutline, IoInformationCircleOutline } from 'react-icons/io5'
+import { IoMoonSharp, IoSunnySharp, IoSearchOutline, IoSettingsOutline, IoLogOutOutline, IoInformationCircleOutline } from 'react-icons/io5'
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { useNavigate } from 'react-router-dom';
 import { Tooltip } from '@mantine/core';
@@ -34,13 +34,20 @@ const Navbar = () => {
             </div>
             <div className="right-section">
                 <Tooltip label={theme === "dark" ? "Light Mode" : "Dark Mode"}>
-                    <div className="icon1" onClick={toggleTheme}>{theme === "dark" ? <IoSunnyOutline size={30} color={"orange"} /> : <IoMoonOutline size={30} color={"rgba(240, 238, 84, 0.74)"} />}</div>
+                    <div className="icon1" onClick={toggleTheme}>{theme === "dark" ? <IoSunnySharp size={30} color={"orange"} /> : <IoMoonSharp size={30} color={"rgba(235, 91, 51, 0.8)"} />}</div>
                 </Tooltip>
+                {/* <Tooltip label={theme === "dark" ? "Light Mode" : "Dark Mode"}>
+                    <div className="icon1" onClick={toggleTheme}>{theme === "dark" ? <IoSunnyOutline size={30} color={"orange"} /> : <IoMoonOutline size={30} color={"rgba(240, 238, 84, 0.74)"} />}</div>
+                </Tooltip> */}
                 <Tooltip label="About this project">
-                    <div className="icon2"><IoInformationCircleOutline size={33} /></div>
+                    <div className="icon2" >
+                        <IoInformationCircleOutline size={33} onClick={() => navigate("/about")} />
+                    </div>
                 </Tooltip>
                 <Tooltip label="Settings">
-                    <div className="icon3"><IoSettingsOutline size={30} /></div>
+                    <div className="icon3">
+                        {localStorage.getItem("token") == null ? <></> : <IoSettingsOutline size={30} onClick={() => navigate("/settings")} />}
+                    </div>
                 </Tooltip>
                 <Tooltip label="Logout">
                     <div className="icon4">

@@ -1,0 +1,26 @@
+.followingModal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 8px;
+}
+
+.followingModal>.followingModal-title {
+    font-size: x-large;
+    font-weight: bolder;
+    padding: 20px;
+}
+
+.followingModal>.followingModal-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.followingModal-emptyText {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
