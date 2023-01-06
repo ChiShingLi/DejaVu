@@ -57,8 +57,8 @@ export const users_userlogin = async (req, res) => {
 
 export const users_updateUserCard = async (req, res) => {
     try {
-        const { fullName, title, location, profilePhoto } = req.body;
-        const userObj = await User.findOneAndUpdate({ username: req.decoded.username }, { $set: { fullName: fullName, title: title, location: location, profilePhoto: profilePhoto } });
+        const { fullName, title, location, profilePhoto, description } = req.body;
+        const userObj = await User.findOneAndUpdate({ username: req.decoded.username }, { $set: { fullName: fullName, title: title, location: location, profilePhoto: profilePhoto, description: description } });
         if (userObj) {
             //remove password property before sending back userObj data
             // const { password, ...reducedUserObj } = userObj._doc;
@@ -155,6 +155,31 @@ export const users_getUserProfile = async (req, res) => {
             return res.status(500).json({ message: "Internal server error." });
         }
 
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ message: "Internal server error." });
+    }
+}
+
+export const users_changePassword = async (req, res) => {
+    try {
+        const userId = req.decoded.id
+        const userObj = await User.findById(userId);
+        if (userObj) {
+            const passwordObj = req.body;
+            //compare user input with the current hashed password
+            const isValidPassword = await bcrypt.compare(passwordObj.currentPassword, userObj.password);
+
+            if (isValidPassword) {
+                //change current password to new password
+                const salt = await bcrypt.genSalt();
+                const newHashedPassword = await bcrypt.hash(passwordObj.newPassword, salt);
+                await User.findByIdAndUpdate(req.decoded.id, { $set: { password: newHashedPassword } });
+                return res.status(200).send({ message: "Password updated successfully." })
+            } else {
+                return res.status(401).send({ message: "Incorrect password." })
+            }
+        }
     } catch (error) {
         console.log(error);
         return res.status(500).json({ message: "Internal server error." });
