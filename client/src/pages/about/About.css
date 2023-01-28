@@ -1,0 +1,35 @@
+.about-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.about-box {
+    width: 50%;
+    height: 50%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.about-box>.about-title {
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bolder;
+    padding: 20px;
+}
+
+.about-box>.about-description {
+    text-align: center;
+    padding: 10px;
+}
+
+.about-dejavu {
+    display: inline;
+    font-weight: bolder;
+    font-size: larger;
+    background: linear-gradient(114deg, rgba(176, 136, 74, 1) 0%, rgba(160, 70, 252, 0.7077205882352942) 78%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
