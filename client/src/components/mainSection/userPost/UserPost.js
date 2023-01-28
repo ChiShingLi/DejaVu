@@ -32,10 +32,6 @@ const UserPost = ({ }) => {
         });
     }
 
-    const handleSelectFeed = () => {
-        console.log()
-    }
-
     useEffect(() => {
         dispatch(fetchAllFeeds());
         setLoading(false);
@@ -47,7 +43,8 @@ const UserPost = ({ }) => {
     }, [selectedFeed]);
 
     const showFollowingFeed = () => {
-        const filteredFeed = postData.filter(post => post.poster == userDetails.following);
+        //filter "following" feeds
+        const filteredFeed = postData.filter(post => userDetails.following.includes(post.poster));
         return filteredFeed;
     }
 
@@ -83,13 +80,12 @@ const UserPost = ({ }) => {
             </div>
             {loading ? <PulseLoader size={30} color={"purple"} /> :
                 <>
-                    {/* {sortByDate(postData)} */}
-                    {postData.map(post => {
+                    {/* {postData.map(post => {
                         return (
                             <Feed postData={post} />
                         )
-                    })}
-                    {/* 
+                    })} */}
+
                     {selectedFeed === "all" ? postData.map(post => {
                         return (
                             <Feed postData={post} />
@@ -100,7 +96,7 @@ const UserPost = ({ }) => {
                                 <Feed postData={post} />
                             )
                         })
-                    } */}
+                    }
                 </>}
         </div>
     )
