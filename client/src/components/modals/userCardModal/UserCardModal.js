@@ -21,7 +21,8 @@ function UserCardModal({ modalOpened, setModalOpened }) {
         fullName: userObj.fullName,
         title: userObj.title,
         location: userObj.location,
-        profilePhoto: userObj.profilePhoto
+        profilePhoto: userObj.profilePhoto,
+        description: userObj.description
     });
 
 
@@ -71,6 +72,7 @@ function UserCardModal({ modalOpened, setModalOpened }) {
                 <input type="text" name="fullName" className="name" placeholder="Name" defaultValue={userObj.fullName} onChange={handleChange} />
                 <input type="text" name="title" className="title" placeholder="Title" defaultValue={userObj.title} onChange={handleChange} />
                 <input type="text" name="location" className="location" placeholder="Location" defaultValue={userObj.location} onChange={handleChange} />
+                <textarea type="text" name="description" className="description" placeholder="Description" maxlength="100" defaultValue={userObj.description} onChange={handleChange} />
                 <button className="button userCardModal-btn" onClick={handleUpdate}>SAVE</button>
             </div>
         </Modal >
