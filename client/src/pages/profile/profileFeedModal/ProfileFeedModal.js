@@ -117,6 +117,9 @@ const ProfileFeedModal = ({ feedData, profileUserData, modalOpened, setModalOpen
                     <div className="profileFeed-date">
                         {moment(feedData.createdAt).format("MMM DD, YYYY")}
                     </div>
+                    <div className="profileFeed-mobileFeedPhoto" >
+                        {feedData.photo !== "" ? <img src={feedData.photo} alt="feed" /> : <div className="profileFeed-feedPhoto-unavailable">Photo Not Available</div>}
+                    </div>
                     <div className="profileFeed-body">
                         <div className="profileFeed-description">
                             {feedData.desc}

@@ -5,3 +5,13 @@
     display: grid;
     grid-template-columns: minmax(15rem, 20rem) minmax(45rem, 55rem) minmax(15rem, 20rem);
 }
+
+@media (max-width: 480px) {
+    .home-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 1.5rem 1rem 1rem;
+    }
+}

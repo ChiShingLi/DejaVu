@@ -42,3 +42,13 @@
 .mainPage-dark>.main-rightSection>.notice {
     color: white;
 }
+
+@media (max-width: 480px) {
+    .main-leftSection {
+        display: none;
+    }
+
+    .main-rightSection {
+        justify-content: flex-start;
+    }
+}

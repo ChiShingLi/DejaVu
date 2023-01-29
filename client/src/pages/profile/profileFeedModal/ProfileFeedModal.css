@@ -3,9 +3,10 @@
     grid-template-columns: 1fr 1fr;
 }
 
-.profileFeed-feedPhoto>img {
-    width: 650px;
-    height: 650px;
+.profileFeed-feedPhoto>img,
+.profileFeed-mobileFeedPhoto>img {
+    width: 100%;
+    height: 100%;
     box-shadow: var(--profileBoxShadow);
     border-radius: 8px;
     object-fit: fill;
@@ -123,4 +124,23 @@
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
+}
+
+.profileFeed-details>.profileFeed-mobileFeedPhoto {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .profileFeed-UserCardModal {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .profileFeed-feedPhoto {
+        display: none;
+    }
+
+    .profileFeed-details>.profileFeed-mobileFeedPhoto {
+        display: block;
+    }
 }

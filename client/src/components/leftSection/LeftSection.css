@@ -1,4 +1,10 @@
-.leftSection{
+.leftSection {
     display: flex;
     flex-direction: column;
+}
+
+@media (max-width: 480px) {
+    .leftSection {
+        display: none;
+    }
 }
