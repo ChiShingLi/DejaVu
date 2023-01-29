@@ -46,13 +46,14 @@ const Login = () => {
             setLoading(false);
         } else if (result.status === false) {
             console.log(result);
-            { result.message.response.status === 401 ? showErrorNoti("Incorrect Username or Password", "Please try again.") : showErrorNoti("Internal Server Error", "Please try again.") }
+            { result.message.response.status === 401 ? showErrorNoti("Error logging in as Demo", "Please try again.") : showErrorNoti("Internal Server Error", "Please try again.") }
         }
         setLoading(false);
     }
 
     //handle submit button click
     const handleDemoSubmit = async () => {
+        setLoading(true);
         const result = await API_userLogin(demoLoginObj);
         if (result.status === true) {
             localStorage.setItem("token", result.token);
@@ -63,6 +64,7 @@ const Login = () => {
             console.log(result);
             { result.message.response.status === 401 ? showErrorNoti("Incorrect Username or Password", "Please try again.") : showErrorNoti("Internal Server Error", "Please try again.") }
         }
+        setLoading(false);
     }
 
     return (
