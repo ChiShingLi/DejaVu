@@ -14,5 +14,10 @@
     -ms-overflow-style: none;
     /* Firefox */
     scrollbar-width: none;
+}
 
+@media (max-width: 480px) {
+    .mainSection {
+        overflow-x: hidden;
+    }
 }
