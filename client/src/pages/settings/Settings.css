@@ -9,8 +9,7 @@
 .settings-box {
     width: 50%;
     height: 50%;
-    background-color: white;
-    border-radius: 10px;
+    z-index: 100;
 }
 
 .settings-box>.settings-title {
@@ -49,4 +48,20 @@
 .tile-description {
     text-align: center;
     font-weight: bold;
+}
+
+@media (max-width: 480px) {
+    .settings-box {
+        width: 90%;
+        height: 90%;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.23);
+    }
+
+    .settings-box>.settings-grid {
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(2, 150px);
+        gap: 15px;
+    }
 }

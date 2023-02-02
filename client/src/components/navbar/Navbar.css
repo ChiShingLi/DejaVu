@@ -3,6 +3,7 @@
     position: relative;
     display: grid;
     grid-template-columns: 10rem auto 10rem;
+    z-index: 3;
 }
 
 .logo-section {

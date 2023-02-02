@@ -3,10 +3,13 @@
     grid-template-columns: 1fr 1fr;
 }
 
-.profileFeed-feedPhoto>img,
-.profileFeed-mobileFeedPhoto>img {
-    width: 100%;
-    height: 100%;
+
+.profileFeed-feedPhoto>img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 500px;
     box-shadow: var(--profileBoxShadow);
     border-radius: 8px;
     object-fit: fill;
@@ -142,5 +145,13 @@
 
     .profileFeed-details>.profileFeed-mobileFeedPhoto {
         display: block;
+    }
+
+    .profileFeed-mobileFeedPhoto>img {
+        width: 100%;
+        height: 100%;
+        box-shadow: var(--profileBoxShadow);
+        border-radius: 8px;
+        object-fit: fill;
     }
 }

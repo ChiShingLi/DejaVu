@@ -98,3 +98,9 @@
     color: red;
     cursor: pointer;
 }
+
+@media (max-width: 480px) {
+    .feedInputWrapper>input {
+        font-size: 80%;
+    }
+}

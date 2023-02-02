@@ -9,6 +9,7 @@
     display: flex;
     gap: 50px;
     align-items: center;
+    z-index: 3;
 }
 
 .profile-profilePhoto>img {
@@ -52,6 +53,7 @@
 
 .profile-feedSection {
     margin-top: 20px;
+    z-index: 3;
 }
 
 .profile-feedGrid {

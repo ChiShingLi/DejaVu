@@ -56,11 +56,13 @@ body {
     background: rgba(124, 37, 170, 0.419);
     filter: blur(80px);
     overflow: hidden;
+    z-index: 0;
 }
 
 .firework2 {
     background: rgb(176, 136, 74);
     filter: blur(160px);
+    z-index: 0;
 }
 
 .button {

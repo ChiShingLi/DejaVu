@@ -50,5 +50,6 @@
 
     .main-rightSection {
         justify-content: flex-start;
+        z-index: 3;
     }
 }

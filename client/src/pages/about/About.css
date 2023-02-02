@@ -23,6 +23,7 @@
 .about-box>.about-description {
     text-align: center;
     padding: 10px;
+    line-height: 1.8;
 }
 
 .about-dejavu {
@@ -32,4 +33,14 @@
     background: linear-gradient(114deg, rgba(176, 136, 74, 1) 0%, rgba(160, 70, 252, 0.7077205882352942) 78%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 480px) {
+    .about-box {
+        width: 90%;
+        height: 90%;
+        background-color: rgba(255, 255, 255, 0.23);
+        border-radius: 10px;
+        z-index: 1;
+    }
 }

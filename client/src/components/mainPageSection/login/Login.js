@@ -46,7 +46,7 @@ const Login = () => {
             setLoading(false);
         } else if (result.status === false) {
             console.log(result);
-            { result.message.response.status === 401 ? showErrorNoti("Error logging in as Demo", "Please try again.") : showErrorNoti("Internal Server Error", "Please try again.") }
+            { result.message.response.status === 401 ? showErrorNoti("Incorrect Username or Password", "Please try again.") : showErrorNoti("Internal Server Error", "Please try again.") }
         }
         setLoading(false);
     }
@@ -62,7 +62,7 @@ const Login = () => {
             setLoading(false);
         } else if (result.status === false) {
             console.log(result);
-            { result.message.response.status === 401 ? showErrorNoti("Incorrect Username or Password", "Please try again.") : showErrorNoti("Internal Server Error", "Please try again.") }
+            { result.message.response.status === 401 ? showErrorNoti("Error logging in as Demo", "Please try again.") : showErrorNoti("Internal Server Error", "Please try again.") }
         }
         setLoading(false);
     }
